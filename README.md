@@ -35,7 +35,7 @@ The real snowball effect kicks in during the mid-to-late game. Bad AI nations wi
 * **Satisfaction Safety Net:** Uses Quadratic Utility (Quad=4) to refuse tax increases if estate satisfaction risks dropping below 25%.
 
 ## 🛠️ Compatibility & Technical Details
-* **1.2 Ready:** Fully compatible with the latest EU5 updates.
+* **1.3 Ready:** Fully compatible with the latest EU5 updates.
 * **Conflict-Free:** Uses modular injection to safely override vanilla weights.
 * **Save Compatible:** Works with ongoing saves (fresh start recommended).
 
