@@ -1,0 +1,42 @@
+﻿namespace = reai_favor_the_ruler_pol
+reai_favor_the_ruler_pol.1 = {
+	type = country_event
+	title = reai_favor_the_ruler_pol.1.t
+	desc = reai_favor_the_ruler_pol.1.d
+	hidden = yes
+	trigger = {
+		is_active_parliament = yes
+	}
+	immediate = {
+		if = {
+			limit = {
+				has_law = distribution_of_power_law
+				# KORUMA KALKANI: Eğer bu özel politikalardan HİÇBİRİ aktif değilse devam et
+				NOR = {
+					has_policy = dop_favor_the_ruler
+					has_policy = dop_law_gbara
+					has_policy = dop_law_english_parliament
+					has_policy = dop_law_navarrese_courts
+					has_policy = dop_law_governing_senate
+					has_policy = dop_law_state_council
+					has_policy = dop_law_estates_general
+					has_policy = dop_law_assemblee_nationale
+					has_policy = dop_law_castilian_courts
+					has_policy = dop_law_comuneros_parliament
+					has_policy = dop_law_castilian_courts_reinforced
+					has_policy = dop_favor_the_kontors
+					has_policy = dop_office_of_the_eristavi
+					has_policy = dop_rudolfine_house_rules
+				}
+				policy:dop_favor_the_ruler = {
+					is_available_for = root
+				}
+			}
+			add_policy = policy:dop_favor_the_ruler
+			change_parliament_issue_support = {
+				value = -0.5
+			}
+			add_stability = 10
+		}
+	}
+}

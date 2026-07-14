@@ -1,0 +1,17 @@
+﻿on_game_start = {
+	on_actions = {
+		reai_on_start
+	}
+}
+
+reai_on_start = {
+	effect = {
+		random_country = {
+			limit = {
+				is_human = no
+			}
+			trigger_event_silently = reai_better_ai_crown_power_man.1
+			trigger_event_silently = reai_better_ai_estate_man.1
+		}
+	}
+}

@@ -1,0 +1,173 @@
+﻿NAI = {
+	# ------ New 1.2.2 update defines start ------
+	AI_UPGRADE_CITY_LOW_MANPOWER_UTILITY = 0.075	# AI desire to build more towns when limited on manpower. 0.035 vanila
+	# AI_LOGISTIC_DISTANCE_UTILITY = 0.005
+	# AI_LAND_MORALE_MODIFIER_UTILITY = 0.25
+	# ----- Pathfinding, Access ve Lojistik Cozumleri -----
+	# AI_PERFORMANCE_PATHFIND_DISTANCE_THRESHOLD = 250	# Uzak rotalarda access zincirini dogru hesaplamasi icin menzili uzattik.
+	# MILITARY_ACCESS_MAX_OBJECTIVES = 5	# Ayni anda 10 farkli ulkeden erzak/askeri gecis isteyebilsin, boylece aradaki kucuk devletlerde takilmasin.
+	# AI_LOW_FOOD_PERCENTAGE_THRESHOLD = 0.5	# Askerleri acikmadan daha erken Food Access almaya calissin, boylece yolda kilitlenmesinler.
+	# ---------------------------------------------------
+	AI_AWAIT_REINFORCING_ARMY_DISTANCE_MAX = 50	# above this map AI will wait for other collaborating armies before engaging their target
+	AI_AWAIT_REINFORCING_ARMY_DISTANCE_MIN = 28	# below this map distance collaborating armies are considered closed enough to start moving again
+	# ------ New 1.2.2 update defines end ------
+	# AI_WAIT_FOR_JOINING_UNIT_STRENGTH_THRESHOLD = 0.33	# AI will wait for joining units if they are at least this strong of the target
+	# AI_REINFORCE_BATTLE_STRENGTH_TRESHOLD = 0.65	# AI will not reinforce battles if their side already have this strength percentage compared to all units in the battle
+	# AI_REINFORCE_BATTLE_DISTANCE_LIMIT = 3	# AI will not look for battles to reinforce that are more than that many locations away
+	# AI_REINFORCE_ONGOING_BATTLE_DISTANCE = 2	# How many locations away AI will try and look to move their arimes to reinforce ongoing combat
+	AI_UPGRADE_BUILDING_UTILITY = 0.04
+	AI_BUFFER_TAX_BASE_FACTOR = 1
+	MAX_LOANS_FOR_MERCS = 1
+	AI_UNINTEGRATED_LAND_EXPANSION_PENALTY = 1
+	AI_LAND_ARMY_MERGE_THRESHOLD = 0.95
+	FOG_OF_WAR_FORGET_CHANCE = 0.5
+	AI_ALLOWED_FORT_BUDGET = 0.065
+	REGIMENT_RECRUITMENT_COST_FACTOR = 0.2	# multiplier for how much we care about the cost of regiments vs budget
+	AI_MAINTENANCE_BUDGET_RATIO = 0.65	# How much of monthly income is allocated for maintenance budget of armies and navies
+	AI_MAINTENANCE_BUDGET_RATIO_AGE_INCREASE = 0.05	# How much the maintenance budget ratio increases per age, to reflect the increasing importance of armies and navies for older ages
+	HUNT_ARMIES_MAX_RADIUS = 28
+	HUNT_ARMIES_WIN_CHANCE_SPLIT = 0.95	# Split up the army if it has more than this win chance
+	HUNT_ARMIES_MAX_SPLINTERS = 2	# Don't split into more armies than this
+	HUNT_ARMIES_DESIRED_STRENGTH_MULT = 1.25
+	HUNT_NAVIES_DESIRED_STRENGTH_MULT = 1.25
+	HUNT_ARMIES_AI_MAX_DISTANCE = 10	# Maximum distance AI will have between base location and important province
+	HUNT_ARMIES_AI_RADIUS_BUFFER = 4	# Additional objective radius
+	HUNT_ARMIES_AI_MAX_NUM_OBJECTIVES = 6	# How many simultaneous HUNT_ARMIES objectives the AI will have at most (soft cap)
+	HUNT_ARMIES_AI_WAR_GOAL_VALUE = 1.1
+	HUNT_ARMIES_AI_CAPITAL_VALUE = 1
+	HUNT_ARMIES_AI_PROVINCE_CAPITAL_VALUE = 1
+	HUNT_ARMIES_AI_ENEMY_VALUE_FACTOR = 1
+	HUNT_ARMIES_AI_REACHABLE_FACTOR = 25
+	AVOID_BATTLES_PATHFIND_CONFRONT_FACTOR = 0.8	# This factor determines how likely the AI is to initiate a battle, as opposed to just staying close by 
+	BATTLE_WIN_CHANCE_SENSITIVITY = 25
+	BATTLE_WIN_CHANCE_ENEMY_BIAS = 2.75
+	BATTLE_WIN_CHANCE_GENERAL_MIL_FACTOR = 0.25	# -> 100 MIL ~ 25% bigger army
+	BATTLE_WIN_CHANCE_ADMIRAL_SKILL_FACTOR = 0.25	# -> 100 Dip ~ 25% better fleet
+	INITIATIVE_COMBAT_STRENGTH_FACTOR = 0.025	# -> 10 initiative ~25% better army
+	DEFAULT_REGULAR_ARMY_PREFERENCE = 3.5	#Default number at 0% War Balance
+	DEFAULT_LEVY_ARMY_PREFERENCE = 0.95
+	DEFAULT_MERCENARY_ARMY_PREFERENCE = 0.5
+	DEFAULT_MERCENARY_NAVY_PREFERENCE = 0.5
+	REGULAR_ARMY_PREFERENCE_FACTOR = 0	#How fast the preference goes down with War Balance increasing. The higher the number the less of those units will be used if we are stronger than the enemy.
+	LEVY_ARMY_PREFERENCE_FACTOR = 0.1	#With negative numbers the reliance on those units will grow instead.
+	MERCENARY_ARMY_PREFERENCE_FACTOR = 1
+	MERCENARY_NAVY_PREFERENCE_FACTOR = 1
+	AI_MERCENARY_COST_UTILITY = -0.45
+	#ESTATES
+	AI_ESTATE_SATISFACTION_TARGET_FOR_GRANTING_PRIVILEGES = 0.6	# when below this target satisfaction (excluding temp modifiers) we want to grant a privilege
+	AI_ESTATE_SATISFACTION_TARGET_FOR_REVOKING_PRIVILEGES = 0.75	# When above this target satisfaction (excluding temp modifiers) we want to revoke a privilege
+	AI_ESTATE_SATISFACTION_STABILITY_ESTIMATE = 0.3	# when evaluating if we should remove or grant a privilege we estimate estate satisfaction based on this stability
+	AI_GRANT_ESTATE_PRIVILEGE_THRESHOLD = 75	# positive utility needed to grant an estate privilege so won't change our mind and remove it later
+	AI_ESTATE_SATISFACTION_TARGET_PARLIAMENT_AGENDAS = 0.4	# Parliament agendas will not be considered if they lower estate satisfaction below this point
+	AI_ESTATE_SATISFACTION_TARGET_PRIVILEGES = 0.02	# Estate privileges will not be considered if they give less estate satisfaction than this
+	AI_ESTATE_TARGET_SATISFACTION_NEEDED_THRESHOLD_PRIVILEGES = 0.05
+	#SUBJECT
+	#all these cumulative multiply the total war-worth  if true..
+	PEACE_MAKE_SUBJECT_BASE_FACTOR = 0.99
+	PEACE_MAKE_SUBJECT_OTHER_DOMINANT_CULTURE = 2
+	PEACE_MAKE_SUBJECT_OTHER_DOMINANT_RELIGION = 2.75
+	PEACE_MAKE_SUBJECT_TOO_MUCH_TO_INTEGRATE = 3
+	AI_ANNEX_SUBJECT_DISTANCE_THRESHOLD = 30	# How far it can be between borders until AI does not want to annex a subject
+	AI_ANNEX_SUBJECT_BORDERING_CONTROL_NEEDED = 0.25	# AI will only subjugate another country if they have at least this much bordering control
+	#REALLY IMPORTANT
+	AI_CONQUER_TREATY_DESIRE_ADJECENT = 75	# score bonus for picking neighboring locations in peace deal, other locations get 1/bonus penalty
+	AI_CONQUER_TREATY_DESIRE_POTENTIAL_BORDERGORE = 0.25	# Score penalty for when AI is taking a location that will maybe cause bordergore
+	AI_CONQUER_TREATY_DESIRE_SMALL_AREA_FACTOR = 1.2
+	AI_CONQUER_TREATY_DESIRE_SAME_PROVINCE = 100
+	#PEACE
+	EARLY_PEACE_TIME_MONTHS = 12	#How many months need to pass for Ai to lose the early war peace acceptance modifier
+	EARLY_PEACE_TIME_BASE = 75	#How much negative acceptance is added by the early war modifier
+	EARLY_PEACE_TIME_FACTOR = 1.5	#How much acceptance is multiplied by the early war modifier
+	PEACE_CEDE_CITY_BASE_MULTIPLIER = 0.33	# Prefer taking provinces not cities
+	# PEACE_RELEASE_COUNTRY_CUT_RIVAL_FACTOR = 0.005	#How much cutting a rival/threat is valued when releasing a country via a peace deal
+	# PEACE_RELEASE_COUNTRY_STRENGTH_REQUIREMENT = 0.005	#How strong a nation needs to be relative to us to consider them a threat we need to cut in size
+	# PEACE_RELEASE_COUNTRY_RIVAL_FACTOR = 0.025	#How many times more does Ai value releasing countries from their rival than just a big country
+	MINIMUM_MONTHS_BETWEEN_EXPANSION = 12
+	SUBJUGATION_EXPANSION_FACTOR = 0.75
+	DEFAULT_AGGRESSIVENESS = 1.75	#Vanilla -1.05. Slightly elevated for proactive AI. #Higher = more aggressive.
+	POWER_BALANCE_AGGRESSIVENESS_FACTOR = 10	#Vanilla 20. 
+	#IMPORTANT
+	EXPECTED_WAR_SCORE_BASE = 50	#How much warscore Ai expects to get in a war.
+	PEACE_DEAL_INTEGRATION_LIMIT_MULTIPLIER = 5
+	PEACE_DEAL_ADDITIONAL_INTEGRATION_LIMIT = 0	# If a peace deal would require more than (Cabinet size + PEACE_DEAL_ADDITIONAL_INTEGRATION_LIMIT) * PEACE_DEAL_INTEGRATION_LIMIT_MULTIPLIER to integrate it won't be accepted, set to -1 so the limit is ignored.
+	AI_NORMAL_SATISFACTION_TARGET = 0.51
+	AI_SAVING_MODE_SATISFACTION_TARGET = 0.41
+	AI_TOO_STRONG_ALLY = 1.6	# Ai will try to avoid countries that would make the balance of power go above this fraction in comparison to their target strength when looking for allies against strong neighbors
+	AI_TOO_WEAK_ALLY = 0.6	# Ai will try to avoid countries that are below this fraction of our strength when looking for allies against strong neighbors
+	# AI_PEACE_CHECK_DAYS = 180
+	GUARANTEEING_CONQUEST_FACTOR = 0
+	GUARANTEEING_SUBJUGATION_FACTOR = 0
+	DISTANT_WAR_BORDER_DISTANCE = 60
+	DISTANT_WAR_CONQUEST_FACTOR = 0.001
+	DISTANT_WAR_SUBJUGATION_FACTOR = 0.33
+	MONTHS_TO_WAIT_FOR_CASUS_BELLI = 32	#How many months will Ai wait for a potential casus belli from script before declaring a no CB or abandoning the war
+	MONTHS_TO_WAIT_FOR_MAINTENANCE = 8	#How many months will Ai wait for maintenance sliders to go up before declaring a war
+	AI_CONQUER_TREATY_DESIRE_FROM_WORTH_MULT = 0.8
+	AI_CONQUER_TREATY_DESIRE_NOT_WARGOAL_MULT = 0.75
+	AI_MAXIMUM_ARMY_VS_NAVY_BUDGET_ALLOCATION = 0.85	# maximum allocation budget for land vs navy based on society value
+	AI_ALLOWED_NAVAL_CONSTRUCTIONS_TAX_BASE_DIVIDER = 50	# Taxbase divided by this is how many parallel fleet constructions AI is allowed
+	AI_ALLOWED_ARMY_CONSTRUCTIONS_TAX_BASE_DIVIDER = 50	# Taxbase divided by this is how many parallel armies constructions AI is allowed
+	MONTHLY_MANPOWER_PER_BASE_TAX_REFERENCE = 0.08	# This is how big manpower pool AI wants based on their tax base
+	MAXIMUM_MANPOWER_MAXIMUM_VALUE = 0.95	# This is how hard they will try to reach their manpower pool target
+	AI_ESSENTIAL_MANPOWER_UTILITY_VALUE = 0.75	# This is how hard they will try to reach their essential manpower pool target, which is enough to maintain their armies and have enough replenishment to rebuild them fast
+	AI_DESIRED_ARMY_MANPOWER_RECOVERY_MONTHS = 240	# Ai will try to have enough manpower recovery to rebuild their whole current army in that many months - INCREASED FOR MOD TO PREVENT DELETION
+	AI_REQUIRED_MANPOWER_SURPLUS_MARGIN = 0.15	# AI needs this much % of monthly manpower reserved for reinforcements - DECREASED TO MAKE AI KEEP BIG ARMIES
+	AI_RELEASE_SUBJECT_AREA_MINIMUM_SIZE = 2	# Minimum owner area size neede for an AI to release that area as a subject
+	SAFE_AMOUNT_OF_ANTAGONISM = 60	#Ai will try not to expand above this, it's NOT their target antagonism when peacing out
+	DEFAULT_CHANCE_OF_EXPANSION = 0.33	#How likely AI is to start a war plan against other nations each month
+	AI_FOW_FORGET_CHASE_ARMY_CHANCE = 0.125	# chance that AI will forget a chase army objective about an army that goes into fow
+	# These two defines adjust AI desire to maintain a profit margin for their country
+	AI_PROFIT_MARGIN_TARGET = 0.1	# the desired profit margin
+	# Saving mode defines, used mainly when AI enters saving modes: low and high. Goal is to try to stay afloat during bankruptcies and repay loans
+	AI_SAVING_MODE_MONTHS_TO_REPAY_DEBT = 180	# AI will try to have a balance which would allow to repay their debts in that many months
+	AI_ESTATE_SATISFACTION_LINEAR_UTIL = 0
+	AI_ESTATE_SATISFACTION_QUAD_UTIL = 4
+	AI_SAVING_MODE_STABILITY_THRESHOLD = 0	# See defines below
+	AI_SAVING_MODE_LOW_STABILITY_GROWTH = 0.35	# Stability growth target when below AI_SAVING_MODE_STABILITY_THRESHOLD
+	AI_SAVING_MODE_HIGH_STABILITY_GROWTH = 0.1	# Stability growth target when above AI_SAVING_MODE_STABILITY_THRESHOLD
+	AI_STABILITY_INHERENT_UTILITY = 0.95	# AI diminishing inherent willingness to invest in stability slider up to 100
+	AI_STABILITY_LINEAR_INHERENT_UTILITY = 3	# AI linear willingness to invest up to 0 stability
+	AI_EMBRACE_INSTITUTION_STABILITY_UTILITY = 0.15	# AI extra willingness to invest in stability slider when it is close to embracing institutions
+	#1.0.10 Knapsack peace deal changes
+	AI_PERFORMANCE_ATTACH_UNIT_MAX_DISTANCE = 300	# maximum distance AI allied units are allowed to travel to attach, shorter number saves more performance on pathfinding
+	AI_LITERACY_GLOBAL_GROWTH_RATE_IMPORTANCE = 0.15
+	PEACE_STALLED_WAR_THRESHOLD = 4
+	PEACE_KNAPSACK_EXTRAS = 1	# Number of times knapsack algo is run by default with (different) pre-selected treaties
+	PEACE_KNAPSACK_EXTRAS_MAX = 5	#absolute max number of tries it will do if it can't find anything that works
+}
+
+NCharacter = {
+	AI_MAX_FEMALE_MARRIAGE_AGE = 36
+	AI_MIN_MARRIAGE_AGE = 18
+}
+
+NDiplomacy = {
+	PEACE_LOAN_SIZE_MULTIPLIER_FOR_MAX_WARSCORE_GOLD = 4	#how many times the country's loan size can be taken for the max war score amount
+	PEACE_MAX_NOBLES_SACRIFICED_PERCENT = 0.33
+	PEACE_MAX_WARSCORE_FOR_GOLD = 15	#most war score that can be used to take gold
+	PEACE_MAX_WARSCORE_FOR_SACRIFICE = 20	#most war score that can be used to sacrifice nobles
+	PEACE_NOBLES_SACRIFICED_PER_DOOM_POINT = 0.01	#pop size is 1/1000 per actual person
+	PEACE_SACRIFICE_AI_DESIRE = 6.5
+	WAR_ENTHUSIASM_ALLY_BASE_RELUCTANCE_MULT = 1.25
+	ANTAGONISM_FOR_COALITION = 55
+	WAR_ENTHUSIASM_BASE = 0.6
+	WAR_ENTHUSIASM_TIME_MONTHS = 50	# Months of additional AI stubbornness in a war
+	WAR_ENTHUSIASM_TIME_EARLY_FACTOR = 0.01	# During months of stubbornness the effect of time passed is multiplied by this
+	WAR_ENTHUSIASM_TIME_LATE_FACTOR = 0.02
+	WAR_ENTHUSIASM_DESPERATION = -0.75
+	WAR_ENTHUSIASM_ATTACKING_SIEGE = 0.4
+	WAR_ENTHUSIASM_DEFENDING_SIEGE = -0.6
+}
+
+NCombat = {
+	INITIATIVE_CHANCE_EACH = 0.05	# Chance to engage per point of initiative
+}
+
+NMercenary = {
+	MERCENARY_ARMY_UNIT_MAX_SIZE = 75
+	MERCENARY_MANPOWER_REPLENISH_TIME_DAYS = 10800
+	MERCENARY_SUBUNITS_AVAILABLE_PER_ADM_POINT = 0.1
+	MERCENARY_RECRUITMENT_DISTANCE_FACTOR = 0.04
+	MERCENARY_LEADER_DISTANCE_MULTIPLIER = 0.0008
+	MERCENARY_NAVY_UNIT_MAX_SIZE = 18
+}

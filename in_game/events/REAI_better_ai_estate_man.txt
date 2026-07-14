@@ -1,0 +1,402 @@
+﻿namespace = reai_better_ai_estate_man
+reai_better_ai_estate_man.1 = {
+	type = country_event
+	title = reai_better_ai_estate_man.1.t
+	desc = reai_better_ai_estate_man.1.d
+	hidden = yes
+	fire_only_once = yes
+	immediate = {
+		every_country = {
+			limit = {
+				is_ai = yes
+			}
+			trigger_event_silently = {
+				id = reai_better_ai_estate_man.2
+				days = 1
+			}
+		}
+	}
+}
+
+reai_better_ai_estate_man.2 = {
+	type = country_event
+	title = reai_better_ai_estate_man.2.t
+	desc = reai_better_ai_estate_man.2.d
+	hidden = yes
+	immediate = {
+		# All Nobles Privileges
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:joint_assembly_decrees = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:nobles_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:joint_assembly_decrees
+				}
+			}
+			grant_estate_privilege = estate_privilege:joint_assembly_decrees
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:elaborate_court_ceremonies = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:nobles_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:elaborate_court_ceremonies
+				}
+			}
+			grant_estate_privilege = estate_privilege:elaborate_court_ceremonies
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:auxilium_et_consilium = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:nobles_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:auxilium_et_consilium
+				}
+			}
+			grant_estate_privilege = estate_privilege:auxilium_et_consilium
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:nobles_land_rights = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:nobles_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:nobles_land_rights
+				}
+			}
+			grant_estate_privilege = estate_privilege:nobles_land_rights
+		}
+		# if = {
+		# 	limit = {
+		# 		is_ai = yes
+		# 		estate_privilege:noble_marriage_rights = {
+		# 			is_allowed_for = root
+		# 			is_implementable_in = root
+		# 		}
+		# 		country_has_estate = estate_type:nobles_estate
+		# 		NOT = {
+		# 			has_estate_privilege = estate_privilege:noble_marriage_rights
+		# 		}
+		# 	}
+		# 	grant_estate_privilege = estate_privilege:noble_marriage_rights
+		# }
+		# All Peasants Privileges
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:peasants_allowed_weapons_privilege = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:peasants_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:peasants_allowed_weapons_privilege
+				}
+			}
+			grant_estate_privilege = estate_privilege:peasants_allowed_weapons_privilege
+		}
+		# All Burgher Privileges
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:building_roads_rights = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:burghers_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:building_roads_rights
+				}
+			}
+			grant_estate_privilege = estate_privilege:building_roads_rights
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:urban_development_grants = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:burghers_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:urban_development_grants
+				}
+			}
+			grant_estate_privilege = estate_privilege:urban_development_grants
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:market_fairs = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:burghers_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:market_fairs
+				}
+			}
+			grant_estate_privilege = estate_privilege:market_fairs
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:treasury_rights = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:burghers_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:treasury_rights
+				}
+			}
+			grant_estate_privilege = estate_privilege:treasury_rights
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:land_of_commerce = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:burghers_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:land_of_commerce
+				}
+			}
+			grant_estate_privilege = estate_privilege:land_of_commerce
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:commercial_advisory_council = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:burghers_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:commercial_advisory_council
+				}
+			}
+			grant_estate_privilege = estate_privilege:commercial_advisory_council
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:building_rights = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:burghers_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:building_rights
+				}
+			}
+			grant_estate_privilege = estate_privilege:building_rights
+		}
+		# All Clergy Privileges
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:clerical_advisory_council = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:clergy_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:clerical_advisory_council
+				}
+			}
+			grant_estate_privilege = estate_privilege:clerical_advisory_council
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:clergy_in_administration = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:clergy_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:clergy_in_administration
+				}
+			}
+			grant_estate_privilege = estate_privilege:clergy_in_administration
+		}
+		# Dhimmi Privileges
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:dhimmi_pact_of_umar = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:dhimmi_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:dhimmi_pact_of_umar
+				}
+			}
+			grant_estate_privilege = estate_privilege:dhimmi_pact_of_umar
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:dhimmi_military_service = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:dhimmi_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:dhimmi_military_service
+				}
+			}
+			grant_estate_privilege = estate_privilege:dhimmi_military_service
+		}
+		# Tribal Privileges
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:tribes_tribal_levies = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:tribes_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:tribes_tribal_levies
+				}
+			}
+			grant_estate_privilege = estate_privilege:tribes_tribal_levies
+		}
+		# Removing useless privileges
+		# Nobles
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:nobles_estate
+				has_estate_privilege = estate_privilege:share_of_the_spoils
+			}
+			revoke_estate_privilege = estate_privilege:share_of_the_spoils
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:nobles_estate
+				has_estate_privilege = estate_privilege:feudal_mercenary_contracts
+			}
+			revoke_estate_privilege = estate_privilege:feudal_mercenary_contracts
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:nobles_estate
+				has_estate_privilege = estate_privilege:banal_lordship
+			}
+			revoke_estate_privilege = estate_privilege:banal_lordship
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:nobles_estate
+				has_estate_privilege = estate_privilege:monetary_fiefs
+			}
+			revoke_estate_privilege = estate_privilege:monetary_fiefs
+		}
+		# Burghers
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:burghers_estate
+				has_estate_privilege = estate_privilege:formal_guilds
+			}
+			revoke_estate_privilege = estate_privilege:formal_guilds
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:burghers_estate
+				has_estate_privilege = estate_privilege:burghers_land_rights
+			}
+			revoke_estate_privilege = estate_privilege:burghers_land_rights
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:burghers_estate
+				has_estate_privilege = estate_privilege:control_over_monetary_policy
+			}
+			revoke_estate_privilege = estate_privilege:control_over_monetary_policy
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:burghers_estate
+				has_estate_privilege = estate_privilege:trade_monopolies
+			}
+			revoke_estate_privilege = estate_privilege:trade_monopolies
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:burghers_estate
+				has_estate_privilege = estate_privilege:sponsor_maritime_contracts
+			}
+			revoke_estate_privilege = estate_privilege:sponsor_maritime_contracts
+		}
+		# Peasants
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:peasants_estate
+				has_estate_privilege = estate_privilege:peasants_fewer_levies
+			}
+			revoke_estate_privilege = estate_privilege:peasants_fewer_levies
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:peasants_estate
+				has_estate_privilege = estate_privilege:peasant_owns_their_food
+			}
+			revoke_estate_privilege = estate_privilege:peasant_owns_their_food
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:peasants_estate
+				has_estate_privilege = estate_privilege:no_labor_sunday
+			}
+			revoke_estate_privilege = estate_privilege:no_labor_sunday
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:peasants_estate
+				has_estate_privilege = estate_privilege:partial_yield
+			}
+			revoke_estate_privilege = estate_privilege:partial_yield
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:peasants_estate
+				has_estate_privilege = estate_privilege:peasants_autonomous_villages
+			}
+			revoke_estate_privilege = estate_privilege:peasants_autonomous_villages
+		}
+	}
+}

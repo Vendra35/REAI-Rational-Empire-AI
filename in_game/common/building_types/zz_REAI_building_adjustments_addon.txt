@@ -1,0 +1,804 @@
+﻿TRY_INJECT:royal_court = {
+	important_for_AI = yes
+	AI_ignore_available_worker_flag = yes
+}
+
+TRY_INJECT:house_of_parliament = {
+	important_for_AI = yes
+	AI_ignore_available_worker_flag = yes
+}
+
+TRY_INJECT:war_college = {
+	important_for_AI = yes
+	AI_ignore_available_worker_flag = yes
+}
+
+TRY_INJECT:tax_assessor = {
+	important_for_AI = yes
+	AI_ignore_available_worker_flag = yes
+}
+
+TRY_INJECT:supreme_court = {
+	important_for_AI = yes
+	AI_ignore_available_worker_flag = yes
+}
+
+TRY_INJECT:royal_garden = {
+	important_for_AI = yes
+	AI_ignore_available_worker_flag = yes
+}
+
+TRY_INJECT:bridge_infrastructure = {
+	important_for_AI = yes
+}
+
+TRY_INJECT:pound_lock_canal_infrastructure = {
+	important_for_AI = yes
+	forbidden_for_estates = no
+}
+
+TRY_INJECT:mercury_patio = {
+	important_for_AI = yes
+}
+
+TRY_INJECT:tar_kiln = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+# Horse breeders vanilada allow içinde var ondan inject yapamktan vazgeçtim Replacede yapmıyorum diğer modlarla çakışmamassı için.
+# TRY_INJECT:horse_breeders = {
+# 	allow = {
+# 		# ... (vanilla şartları varsa burada kalsın) ...
+# 		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+# 		OR = {
+# 			owner = {
+# 				is_ai = no
+# 			}
+# 			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+# 			AND = {
+# 				# Toprağın sahibi AI ise.
+# 				owner = {
+# 					is_ai = yes
+# 				}
+# 				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+# 				local_control >= 0.25
+# 			}
+# 		}
+# 	}
+# }
+TRY_INJECT:lumber_mill = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:fiber_crops_farm = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:irrigation_systems = {
+	forbidden_for_estates = no
+}
+
+TRY_INJECT:fruit_orchard = {
+	forbidden_for_estates = no
+}
+
+# Capital Manpower Buildings
+TRY_INJECT:sergeantry = {
+	important_for_AI = yes
+	AI_ignore_available_worker_flag = yes
+}
+
+TRY_INJECT:city_guard = {
+	important_for_AI = yes
+	AI_ignore_available_worker_flag = yes
+}
+
+# Rural Manpower Buildings
+TRY_INJECT:training_fields = {
+	important_for_AI = yes
+}
+
+TRY_INJECT:regimental_camp = {
+	important_for_AI = yes
+}
+
+# Urban Manpower Buildings
+TRY_INJECT:barracks = {
+	important_for_AI = yes
+}
+
+TRY_INJECT:conscription_center = {
+	important_for_AI = yes
+}
+
+TRY_INJECT:brewery = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:scriptorium = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:printing_press_shop = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.3
+			}
+		}
+	}
+}
+
+TRY_INJECT:cannon_maker = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:cloth_guild = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:cloth_workshop = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.3
+			}
+		}
+	}
+}
+
+TRY_INJECT:dyes_guild = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:fine_cloth_guild = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:fine_cloth_workshop = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.3
+			}
+		}
+	}
+}
+
+TRY_INJECT:gun_smith = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:guns_workshop = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.3
+			}
+		}
+	}
+}
+
+TRY_INJECT:furniture_guild = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:furniture_workshop = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.3
+			}
+		}
+	}
+}
+
+TRY_INJECT:glass_guild = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:glass_workshop = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.3
+			}
+		}
+	}
+}
+
+TRY_INJECT:tannery = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:tanning_workshop = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.3
+			}
+		}
+	}
+}
+
+TRY_INJECT:naval_supplies_guild = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:distillers_guild = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:distillers_workshop = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.3
+			}
+		}
+	}
+}
+
+TRY_INJECT:pottery_guild = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:paper_guild = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:paper_workshop = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.3
+			}
+		}
+	}
+}
+
+TRY_INJECT:winery = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:tools_guild = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:tools_workshop = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.3
+			}
+		}
+	}
+}
+
+TRY_INJECT:weapon_guild = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:weapon_workshop = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.3
+			}
+		}
+	}
+}
+
+TRY_INJECT:saltpeter_guild = {
+	allow = {
+		# ... (vanilla şartları varsa burada kalsın) ...
+		# REAI KISITLAMASI: AI ise kontrol %25'den büyük olmalı
+		OR = {
+			owner = {
+				is_ai = no
+			}
+			# Toprağın sahibi oyuncu ise kuralı es geç (özgürce hata yapabilir)
+			AND = {
+				# Toprağın sahibi AI ise.
+				owner = {
+					is_ai = yes
+				}
+				# Zaten toprak scope'undayız, doğrudan kontrol değerine bakabiliriz.
+				local_control >= 0.25
+			}
+		}
+	}
+}
+
+TRY_INJECT:sheep_farms = {
+	forbidden_for_estates = no
+}
+
+TRY_INJECT:fishing_village = {
+	forbidden_for_estates = no
+}
+
+TRY_INJECT:farming_village = {
+	forbidden_for_estates = no
+}
+
+TRY_INJECT:forest_village = {
+	forbidden_for_estates = no
+}
+
+TRY_INJECT:temple = {
+	important_for_AI = yes
+	AI_ignore_available_worker_flag = yes
+}
+
+TRY_INJECT:hospital = {
+	modifier = {
+		local_disease_resistance = 0.1
+		local_population_growth = 0.001
+	}
+}
+
+TRY_INJECT:granary = {
+	forbidden_for_estates = no
+}

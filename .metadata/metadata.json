@@ -1,0 +1,11 @@
+﻿{
+	"name":	"REAI: Rational Empire AI",
+	"id":	"Economy REAI: Rational Empire AI REAI AI Balance War Diplomacy ",
+	"version":	"1.0.0",
+	"supported_game_version":	"1.3.X",
+	"short_description":	"Is the vanilla AI ruining your immersion by wasting its treasury on buildings in low-control provinces for 0 ROI, picking useless government reforms and estates privileges, relying entirely on peasant levies rather than a proper regular army, and creating horrific bordergore? \n\nREAI (Rational Empire AI) is a comprehensive script-level overhaul that forces the AI to manage its empire like a calculating, logical state. By utilizing custom script injections and strict logic gates, this mod ensures the AI prioritizes a professional army of Regulars over weak levies, maintains a rock-solid manpower reserve, manages its government reforms optimally, and dictates clean, strategic expansion.",
+	"tags":	["Balance", "Diplomacy", "Fixes", "Gameplay", "Government and Estates", "Historical", "Military", "Trade and Economics"],
+	"relationships":	[],
+	"game_custom_data":	{
+}
+}

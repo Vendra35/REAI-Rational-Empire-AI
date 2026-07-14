@@ -1,0 +1,12 @@
+﻿reai_reform_manager_list = {
+	# Bu liste sadece AI için çalışsın diyerek motoru rahatlatıyoruz
+	potential = {
+		is_ai = yes
+	}
+	actions = {
+		reai_unique_reform_manager
+		reai_age2_reform_fixer
+		reai_age3_reform_fixer
+		reai_age4_reform_fixer
+	}
+}

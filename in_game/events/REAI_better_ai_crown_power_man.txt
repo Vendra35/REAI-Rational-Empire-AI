@@ -1,0 +1,46 @@
+﻿namespace = reai_better_ai_crown_power_man
+reai_better_ai_crown_power_man.1 = {
+	type = country_event
+	title = reai_better_ai_crown_power_man.1.t
+	desc = reai_better_ai_crown_power_man.1.d
+	hidden = yes
+	fire_only_once = yes
+	immediate = {
+		every_country = {
+			limit = {
+				is_ai = yes
+			}
+			trigger_event_silently = {
+				id = reai_better_ai_crown_power_man.2
+				days = 1
+			}
+		}
+	}
+}
+
+reai_better_ai_crown_power_man.2 = {
+	type = country_event
+	title = reai_better_ai_crown_power_man.2.t
+	desc = reai_better_ai_crown_power_man.2.d
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				is_ai = yes
+				government_reform:autocracy = {
+					is_allowed_for = root
+				}
+				government_reform:autocracy = {
+					is_implementable_in = root
+				}
+				NOT = {
+					has_reform = government_reform:autocracy
+				}
+				num_open_reform_slots >= 1
+			}
+			add_reform = government_reform:autocracy
+		}
+		else = {
+		}
+	}
+}

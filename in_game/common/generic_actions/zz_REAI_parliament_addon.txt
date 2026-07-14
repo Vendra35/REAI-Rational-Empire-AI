@@ -1,0 +1,391 @@
+﻿TRY_REPLACE:call_parliament = {
+	type = owncountry
+	ai_tick = never
+	automation_tick = never
+	player_automated_category = parliament
+	allow = {
+		scope:actor = {
+			is_active_parliament = no
+			months_since_last_parliament_called > "define:NCountry|PARLIAMENT_COOLDOWN_MONTHS"
+			NOT = {
+				modifier:parliament_abolished = yes
+			}
+		}
+	}
+	select_trigger = {
+		show_if = {
+			scope:actor = {
+				country_type = location
+				modifier:permanent_parliament_location = no
+			}
+		}
+		looking_for_a = location
+		source = actor
+		ai_interaction_source_list = {
+			scope:actor = {
+				capital = {
+					add_to_list = source
+				}
+			}
+		}
+		target_flag = parliament_location
+		name = "select_parliament_location"
+		none_available_msg_key = "call_parliament_no_locations"
+		column = {
+			data = name
+		}
+		column = {
+			data = population
+		}
+		column = {
+			data = control
+		}
+		column = {
+			data = rank
+		}
+		visible = {
+			has_owner = yes
+			owner ?= scope:actor
+			controller ?= scope:actor
+			proximity > 0
+			OR = {
+				is_capital = yes
+				AND = {
+					OR = {
+						is_core_of = scope:actor
+						modifier:has_parliament_seat = yes
+					}
+					OR = {
+						is_province_capital = yes
+						modifier:fort_level > 0
+					}
+					OR = {
+						is_city = yes
+						scope:actor = {
+							modifier:can_call_rural_parliaments = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	select_trigger = {
+		looking_for_a = parliament_issue
+		interaction_source_list = {
+			scope:actor = {
+				every_possible_parliament_issue = {
+					add_to_list = source
+				}
+			}
+		}
+		ai_interaction_source_list = {
+			scope:actor = {
+				every_possible_parliament_issue = {
+					if = {
+						limit = {
+							"ai_parliament_issue_resolution_vote_bias(scope:actor)" >= 0
+						}
+						add_to_list = source
+					}
+				}
+			}
+		}
+		cache_targets = yes
+		target_flag = parliament_issue
+		name = "select_parliament_debate"
+		none_available_msg_key = "select_parliament_debate_none_available"
+		column = {
+			data = parliament_issue_widget
+		}
+		visible = {
+			is_available_for = scope:actor
+		}
+	}
+	effect = {
+		scope:actor = {
+			if = {
+				limit = {
+					exists = scope:parliament_location
+				}
+				set_parliament_location = scope:parliament_location
+				custom_tooltip = {
+					text = select_parliament_location_modifier_tooltip
+				}
+				if = {
+					limit = {
+						scope:parliament_location = scope:actor.capital
+					}
+					custom_tooltip = {
+						text = select_parliament_location_capital_modifier_tooltip
+					}
+				}
+				else = {
+					custom_tooltip = {
+						text = select_parliament_location_not_capital_modifier_tooltip
+					}
+				}
+				scope:parliament_location = {
+					add_location_modifier = {
+						modifier = parliament_location
+						mode = replace
+						days = 180
+					}
+				}
+			}
+			else = {
+				custom_tooltip = select_parliament_location_inform_choice_tt
+				set_parliament_location = scope:actor.capital
+			}
+			set_parliament_active = yes
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				trigger_event_silently = {
+					id = reai_favor_the_ruler_pol.1
+					days = 90
+				}
+			}
+			if = {
+				limit = {
+					exists = scope:parliament_issue
+				}
+				set_parliament_issue = scope:parliament_issue
+				set_parliament_issue_support = {
+					add = {
+						desc = parliament_base_support
+						value = modifier:parliament_base_support
+					}
+					if = {
+						limit = {
+							scope:parliament_issue.estate_type = {
+								always_loyal = no
+							}
+						}
+						add = {
+							desc = estate_power
+							value = "estate_power(scope:parliament_issue.estate_type)"
+						}
+					}
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		add = {
+			if = {
+				limit = {
+					scope:actor = {
+						months_since_last_parliament_called < 72
+						stability < 0
+					}
+				}
+				value = -10000
+			}
+			if = {
+				limit = {
+					scope:actor = {
+						months_since_last_parliament_called > 120
+					}
+				}
+				value = 500
+			}
+			#Wants to get a CB out of parliament
+			if = {
+				limit = {
+					scope:actor = {
+						OR = {
+							any_neighbor_country = {
+								scope:actor = {
+									wants_casus_belli_with = prev
+								}
+							}
+							any_rival = {
+								scope:actor = {
+									wants_casus_belli_with = prev
+								}
+							}
+						}
+					}
+				}
+				value = 100
+			}
+		}
+		scope:actor = {
+			if = {
+				limit = {
+					exists = scope:parliament_issue
+				}
+				add = "parliament_issue_chance(scope:parliament_issue)"
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:parliament_location
+			}
+			scope:parliament_location = {
+				save_temporary_scope_as = this_parliament_location
+			}
+		}
+		else = {
+			scope:actor = {
+				capital = {
+					save_temporary_scope_as = this_parliament_location
+				}
+			}
+		}
+		multiply = {
+			scope:this_parliament_location = {
+				if = {
+					limit = {
+						scope:actor = {
+							capital = scope:this_parliament_location
+							modifier:can_call_rural_parliaments = no
+						}
+					}
+					value = 30
+				}
+				else = {
+					value = proximity					# proximity goes from 0 to 100
+					add = {
+						value = local_control						# control goes from 0 to 1
+						multiply = 10
+					}
+					add = {
+						value = scope:actor.societal_value:centralization_vs_decentralization
+						multiply = 0.1
+					}
+					add = {
+						value = random_integer
+						modulo = 10
+					}
+				}
+				if = {
+					limit = {
+						location_rank = location_rank:town
+					}
+					add = 2
+				}
+				else_if = {
+					limit = {
+						location_rank = location_rank:city
+					}
+					add = 10
+				}
+				add = {
+					value = modifier:fort_level
+					multiply = 2
+				}
+			}
+		}
+	}
+}
+
+TRY_REPLACE:ask_for_law_changes = {
+	type = parliament
+	sound = PARLIAMENT_ASK_FOR_LAW_CHANGES
+	ai_tick = daily
+	ai_tick_frequency = 100
+	automation_tick = daily
+	automation_tick_frequency = 7
+	player_automated_category = parliament
+	ai_prerequisite = {
+		discount_needed_for_law_change > 0
+		has_ai_preferred_parliament_law_change = yes
+	}
+	allow = {
+		scope:actor = {
+			is_active_parliament = yes
+			parliament_issue_support > modifier:parliament_request_issue_support_needed
+		}
+	}
+	select_trigger = {
+		looking_for_a = law
+		interaction_source_list = {
+			scope:actor = {
+				every_current_law = {
+					limit = {
+						NOT = {
+							is_locked_for = scope:actor
+						}
+					}
+					add_to_list = source
+				}
+			}
+		}
+		ai_interaction_source_list = {
+			scope:actor = {
+				every_current_law = {
+					limit = {
+						is_ai_preferred_parliament_change_law = scope:actor
+					}
+					add_to_list = source
+				}
+			}
+		}
+		cache_interaction_source_list = yes
+		target_flag = target_law
+		name = "ask_for_law_changes_select_law_title"
+		none_available_msg_key = "no_valid_laws"
+		column = {
+			data = law_attribute_column
+		}
+	}
+	select_trigger = {
+		looking_for_a = policy
+		interaction_source_list = {
+			scope:target_law = {
+				every_policy_in_law = {
+					limit = {
+						policy_possible_for_country = scope:actor
+					}
+					add_to_list = source
+				}
+			}
+		}
+		ai_interaction_source_list = {
+			scope:target_law = {
+				every_policy_in_law = {
+					limit = {
+						is_ai_preferred_parliament_change_policy = scope:actor
+					}
+					add_to_list = source
+				}
+			}
+		}
+		target_flag = target_policy
+		name = "ask_for_law_changes_select_policies_title"
+		none_available_msg_key = "no_valid_policies"
+		top_widget = law_card_header_at_parlaiment_policy_select
+		column = {
+			data = policy_name_desc
+		}
+	}
+	effect = {
+		scope:actor = {
+			if = {
+				limit = {
+					exists = scope:target_law
+					exists = scope:target_policy
+				}
+				add_policy = scope:target_policy
+			}
+			else = {
+				custom_tooltip = ask_for_law_changes_select_law_title
+			}
+			change_parliament_issue_support = {
+				value = modifier:parliament_request_issue_support_needed
+				multiply = -1
+			}
+		}
+	}
+	ai_will_do = {
+		add = {
+			value = 250
+			desc = "PREFERRED_LAW_CHANGE"
+		}
+		add = {
+			value = "scope:actor.policy_utility(scope:target_law|scope:target_policy|yes)"
+		}
+	}
+}

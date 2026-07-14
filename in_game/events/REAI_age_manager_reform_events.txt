@@ -1,0 +1,444 @@
+﻿namespace = reai_age_manager_events
+# 4. Çağ Better reform verme eventi
+reai_age_manager_events.1 = {
+	type = country_event
+	title = reai_age_manager_events.1.t
+	desc = reai_age_manager_events.1.d
+	hidden = yes
+	trigger = {
+		is_ai = yes
+		government_reform:statute_of_monopolies = {
+			is_allowed_for = root
+		}
+		government_reform:statute_of_monopolies = {
+			is_implementable_in = root
+		}
+		NOT = {
+			has_reform = government_reform:statute_of_monopolies
+		}
+		num_open_reform_slots >= 1
+		# AI'ın Merkantilizm tarafında (sol eksen) %50'den fazla ilerlemiş olması şartı
+		societal_value:mercantilism_vs_free_trade < -50
+	}
+	immediate = {
+	}
+	option = {
+		name = reai_age_manager_events.1.a
+		add_reform = government_reform:statute_of_monopolies
+	}
+}
+
+# 4. Çağ Better reform verme eventi
+reai_age_manager_events.2 = {
+	type = country_event
+	title = reai_age_manager_events.2.t
+	desc = reai_age_manager_events.2.d
+	hidden = yes
+	trigger = {
+		is_ai = yes
+		num_open_reform_slots >= 1
+		government_reform:privy_council = {
+			is_allowed_for = root
+		}
+		government_reform:privy_council = {
+			is_implementable_in = root
+		}
+		NOT = {
+			has_reform = government_reform:privy_council
+		}
+	}
+	immediate = {
+	}
+	option = {
+		name = reai_age_manager_events.2.a
+		add_reform = government_reform:privy_council
+	}
+}
+
+# 3. Çağ Better reform verme eventi
+reai_age_manager_events.3 = {
+	type = country_event
+	title = reai_age_manager_events.3.t
+	desc = reai_age_manager_events.3.d
+	hidden = yes
+	trigger = {
+		is_ai = yes
+		num_open_reform_slots >= 1
+		government_reform:universal_serfdom = {
+			is_allowed_for = root
+		}
+		government_reform:universal_serfdom = {
+			is_implementable_in = root
+		}
+		NOT = {
+			has_reform = government_reform:universal_serfdom
+		}
+		# AI'ın serfdom tarafında (sol eksen) %50'den fazla ilerlemiş olması şartı
+		societal_value:serfdom_vs_free_subjects < -50
+	}
+	immediate = {
+	}
+	option = {
+		name = reai_age_manager_events.3.a
+		add_reform = government_reform:universal_serfdom
+	}
+}
+
+# 3. Çağ Better reform verme eventi
+reai_age_manager_events.4 = {
+	type = country_event
+	title = reai_age_manager_events.4.t
+	desc = reai_age_manager_events.4.d
+	hidden = yes
+	trigger = {
+		is_ai = yes
+		num_open_reform_slots >= 1
+		government_reform:the_court_of_wards_and_liveries = {
+			is_allowed_for = root
+		}
+		government_reform:the_court_of_wards_and_liveries = {
+			is_implementable_in = root
+		}
+		NOT = {
+			has_reform = government_reform:the_court_of_wards_and_liveries
+		}
+	}
+	immediate = {
+	}
+	option = {
+		name = reai_age_manager_events.4.a
+		add_reform = government_reform:the_court_of_wards_and_liveries
+	}
+}
+
+# 1 ve 2. Çağ Better reform verme eventi
+reai_age_manager_events.5 = {
+	type = country_event
+	title = reai_age_manager_events.5.t
+	desc = reai_age_manager_events.5.d
+	hidden = yes
+	trigger = {
+		is_ai = yes
+		num_open_reform_slots >= 1
+		government_reform:royal_decree = {
+			is_allowed_for = root
+		}
+		government_reform:royal_decree = {
+			is_implementable_in = root
+		}
+		NOT = {
+			has_reform = government_reform:royal_decree
+		}
+	}
+	immediate = {
+	}
+	option = {
+		name = reai_age_manager_events.5.a
+		add_reform = government_reform:royal_decree
+	}
+}
+
+# 1 ve 2. Çağ Better reform verme eventi
+reai_age_manager_events.6 = {
+	type = country_event
+	title = reai_age_manager_events.6.t
+	desc = reai_age_manager_events.6.d
+	hidden = yes
+	trigger = {
+		is_ai = yes
+		num_open_reform_slots >= 1
+		government_reform:privy_council = {
+			is_allowed_for = root
+		}
+		government_reform:privy_council = {
+			is_implementable_in = root
+		}
+		NOT = {
+			has_reform = government_reform:privy_council
+		}
+	}
+	immediate = {
+	}
+	option = {
+		name = reai_age_manager_events.6.a
+		add_reform = government_reform:privy_council
+	}
+}
+
+# 4. Çağ Better reform verme eventi
+reai_age_manager_events.7 = {
+	type = country_event
+	title = reai_age_manager_events.7.t
+	desc = reai_age_manager_events.7.d
+	hidden = yes
+	trigger = {
+		is_ai = yes
+		num_open_reform_slots >= 1
+		government_reform:the_court_of_wards_and_liveries = {
+			is_allowed_for = root
+		}
+		government_reform:the_court_of_wards_and_liveries = {
+			is_implementable_in = root
+		}
+		NOT = {
+			has_reform = government_reform:the_court_of_wards_and_liveries
+		}
+	}
+	immediate = {
+	}
+	option = {
+		name = reai_age_manager_events.7.a
+		add_reform = government_reform:the_court_of_wards_and_liveries
+	}
+}
+
+# Unique reform verme eventi
+reai_age_manager_events.8 = {
+	type = country_event
+	title = reai_age_manager_events.8.t
+	desc = reai_age_manager_events.8.d
+	hidden = yes
+	trigger = {
+		is_ai = yes
+		num_open_reform_slots >= 1
+	}
+	immediate = {
+	}
+	option = {
+		name = reai_age_manager_events.8.a
+		# --- RUSYA / MUSCOVY ---
+		if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:sudebnik
+				}
+				government_reform:sudebnik = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:sudebnik
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:oprichnina
+				}
+				government_reform:oprichnina = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:oprichnina
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:prikazi_reform
+				}
+				government_reform:prikazi_reform = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:prikazi_reform
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:razriadnyi_reform
+				}
+				government_reform:razriadnyi_reform = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:razriadnyi_reform
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:state_controlled_church
+				}
+				government_reform:state_controlled_church = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:state_controlled_church
+		}
+		# --- OSMANLI ---
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:enderun_interior_service
+				}
+				government_reform:enderun_interior_service = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:enderun_interior_service
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:ottoman_imperial_harem
+				}
+				government_reform:ottoman_imperial_harem = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:ottoman_imperial_harem
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:ottoman_eunuch_viziers
+				}
+				government_reform:ottoman_eunuch_viziers = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:ottoman_eunuch_viziers
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:sekban_system
+				}
+				government_reform:sekban_system = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:sekban_system
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:legacy_of_osman
+				}
+				government_reform:legacy_of_osman = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:legacy_of_osman
+		}
+		# --- FRANSA ---
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:gabelle
+				}
+				government_reform:gabelle = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:gabelle
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:fra_code_louis
+				}
+				government_reform:fra_code_louis = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:fra_code_louis
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:french_centralized_monarchy
+				}
+				government_reform:french_centralized_monarchy = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:french_centralized_monarchy
+		}
+		# --- CASTILE / SPAIN ---
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:casa_de_contratacion
+				}
+				government_reform:casa_de_contratacion = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:casa_de_contratacion
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:system_of_councils_reform
+				}
+				government_reform:system_of_councils_reform = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:system_of_councils_reform
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:royal_factories_reform
+				}
+				government_reform:royal_factories_reform = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:royal_factories_reform
+		}
+		# --- AUSTRIA ---
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:libertas_affectandi
+				}
+				government_reform:libertas_affectandi = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:libertas_affectandi
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:austrian_archduchy_reform
+				}
+				government_reform:austrian_archduchy_reform = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:austrian_archduchy_reform
+		}
+		# --- NAPLES ---
+		else_if = {
+			limit = {
+				NOT = {
+					has_reform = government_reform:serene_republic_of_naples
+				}
+				government_reform:serene_republic_of_naples = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+			}
+			add_reform = government_reform:serene_republic_of_naples
+		}
+	}
+}

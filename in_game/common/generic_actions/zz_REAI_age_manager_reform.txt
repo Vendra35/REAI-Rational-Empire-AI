@@ -1,0 +1,1583 @@
+﻿############### Rational Economy AI - Age 2 Reform Management ###############
+reai_unique_reform_manager = {
+	type = owncountry
+	potential = {
+		scope:actor = {
+			is_ai = yes
+			# ÇAĞ ŞARTI YOK! Ülke alabildiği an alsın.
+			OR = {
+				# --- RUSYA / MUSCOVY ---
+				AND = {
+					NOT = {
+						has_reform = government_reform:sudebnik
+					}
+					government_reform:sudebnik = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:oprichnina
+					}
+					government_reform:oprichnina = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:prikazi_reform
+					}
+					government_reform:prikazi_reform = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:razriadnyi_reform
+					}
+					government_reform:razriadnyi_reform = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:state_controlled_church
+					}
+					government_reform:state_controlled_church = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				# --- OSMANLI ---
+				AND = {
+					NOT = {
+						has_reform = government_reform:enderun_interior_service
+					}
+					government_reform:enderun_interior_service = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:ottoman_imperial_harem
+					}
+					government_reform:ottoman_imperial_harem = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:ottoman_eunuch_viziers
+					}
+					government_reform:ottoman_eunuch_viziers = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:sekban_system
+					}
+					government_reform:sekban_system = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:legacy_of_osman
+					}
+					government_reform:legacy_of_osman = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				# --- FRANSA ---
+				AND = {
+					NOT = {
+						has_reform = government_reform:gabelle
+					}
+					government_reform:gabelle = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:fra_code_louis
+					}
+					government_reform:fra_code_louis = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:french_centralized_monarchy
+					}
+					government_reform:french_centralized_monarchy = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				# --- CASTILE / SPAIN ---
+				AND = {
+					NOT = {
+						has_reform = government_reform:casa_de_contratacion
+					}
+					government_reform:casa_de_contratacion = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:system_of_councils_reform
+					}
+					government_reform:system_of_councils_reform = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:royal_factories_reform
+					}
+					government_reform:royal_factories_reform = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				# --- AUSTRIA ---
+				AND = {
+					NOT = {
+						has_reform = government_reform:libertas_affectandi
+					}
+					government_reform:libertas_affectandi = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:austrian_archduchy_reform
+					}
+					government_reform:austrian_archduchy_reform = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				# --- NAPLES ---
+				AND = {
+					NOT = {
+						has_reform = government_reform:serene_republic_of_naples
+					}
+					government_reform:serene_republic_of_naples = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+			}
+		}
+	}
+	# ÖNEMLİ: Jeneriklerden (48 ay) daha sık (12 ay) kontrol ettiriyoruz ki önceliği kapsın.
+	ai_tick = monthly
+	ai_tick_frequency = 12
+	ai_will_do = {
+		value = 2000		# Devasa öncelik puanı
+	}
+	effect = {
+		scope:actor = {
+			# Slot yoksa gereksizleri sil (Aynı silme listen burada da olacak)
+			if = {
+				limit = {
+					num_open_reform_slots == 0
+				}
+				# Age 4 Useless Reforms
+				if = {
+					limit = {
+						has_reform = government_reform:policy_of_calculated_delay
+					}
+					remove_reform = government_reform:policy_of_calculated_delay
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:the_espionage_act
+					}
+					remove_reform = government_reform:the_espionage_act
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:the_loyalty_act
+					}
+					remove_reform = government_reform:the_loyalty_act
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:diplomatic_consolidation_act
+					}
+					remove_reform = government_reform:diplomatic_consolidation_act
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:cultural_recognition_act
+					}
+					remove_reform = government_reform:cultural_recognition_act
+				}
+				# YEDEK: Age 1 ve Age 2 Useless Reforms
+				else_if = {
+					limit = {
+						has_reform = government_reform:trade_office_network
+					}
+					remove_reform = government_reform:trade_office_network
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:colonial_expansion
+					}
+					remove_reform = government_reform:colonial_expansion
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:religious_tolerance
+					}
+					remove_reform = government_reform:religious_tolerance
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:diplomatic_traditions
+					}
+					remove_reform = government_reform:diplomatic_traditions
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:enforce_religious_adherence
+					}
+					remove_reform = government_reform:enforce_religious_adherence
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:plutocratic_ethos
+					}
+					remove_reform = government_reform:plutocratic_ethos
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:garrison_system
+					}
+					remove_reform = government_reform:garrison_system
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:vassal_obligation_act
+					}
+					remove_reform = government_reform:vassal_obligation_act
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:feudal_nobility
+					}
+					remove_reform = government_reform:feudal_nobility
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:of_noble_bearing
+					}
+					remove_reform = government_reform:of_noble_bearing
+				}
+				# Age 2 Theocracy Useless Reform Remover.
+				else_if = {
+					limit = {
+						has_reform = government_reform:feudal_theocracy
+					}
+					remove_reform = government_reform:feudal_theocracy
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:religious_laws_enforced
+					}
+					remove_reform = government_reform:religious_laws_enforced
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:mercenary_registration_act
+					}
+					remove_reform = government_reform:mercenary_registration_act
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:multilingual_diplomats
+					}
+					remove_reform = government_reform:multilingual_diplomats
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:agricultural_cultivation
+					}
+					remove_reform = government_reform:agricultural_cultivation
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:local_army_organization
+					}
+					remove_reform = government_reform:local_army_organization
+				}
+				else_if = {
+					limit = {
+						has_reform = government_reform:autocracy
+					}
+					remove_reform = government_reform:autocracy
+				}
+			}
+			# Slot açıldıysa (veya zaten varsa) Özel Reformu Anında Ekle
+			if = {
+				limit = {
+					num_open_reform_slots >= 1
+				}
+				trigger_event_silently = {
+					id = reai_age_manager_events.8
+					days = 15
+				}
+			}
+		}
+	}
+}
+
+# Bu aksiyon AI'ýn Age 2 reformlarýný senin hiyerarþine göre (1. Decree, 2. Council) zorla seçmesini saðlar.
+reai_age2_reform_fixer = {
+	type = owncountry
+	# Sadece AI ve Age 2'deki ülkeler için çalýþýr
+	potential = {
+		scope:actor = {
+			is_ai = yes
+			current_age = age_2_renaissance
+			# Eðer hiyerarþideki temel reformlar yoksa ve ÜLKE BUNLARI ALABÝLÝYORSA tetiklenir
+			OR = {
+				AND = {
+					NOT = {
+						has_reform = government_reform:royal_decree
+					}
+					government_reform:royal_decree = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:privy_council
+					}
+					government_reform:privy_council = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+			}
+		}
+	}
+	# AI her 12 ayda bir kontrol eder
+	ai_tick = monthly
+	ai_tick_frequency = 48
+	ai_will_do = {
+		value = 100
+	}
+	effect = {
+		scope:actor = {
+			# ADIM 1: Royal Decree (Mutlak Öncelik)
+			if = {
+				limit = {
+					NOT = {
+						has_reform = government_reform:royal_decree
+					}
+					government_reform:royal_decree = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				# Age 1 ve Age 2 için: Slot doluysa bir reformu silip yer açar
+				if = {
+					limit = {
+						num_open_reform_slots == 0
+					}
+					# Age 1 Common Useless Reform Remover.
+					if = {
+						limit = {
+							has_reform = government_reform:trade_office_network
+						}
+						remove_reform = government_reform:trade_office_network
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:religious_tolerance
+						}
+						remove_reform = government_reform:religious_tolerance
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:diplomatic_traditions
+						}
+						remove_reform = government_reform:diplomatic_traditions
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:enforce_religious_adherence
+						}
+						remove_reform = government_reform:enforce_religious_adherence
+					}
+					# Age 2 Common Useless Reform Remover.
+					else_if = {
+						limit = {
+							has_reform = government_reform:plutocratic_ethos
+						}
+						remove_reform = government_reform:plutocratic_ethos
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:garrison_system
+						}
+						remove_reform = government_reform:garrison_system
+					}
+					# Age 1 Monarchy Useless Reform Remover.
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_nobility
+						}
+						remove_reform = government_reform:feudal_nobility
+					}
+					# Age 2 Monarchy Useless Reform Remover.
+					else_if = {
+						limit = {
+							has_reform = government_reform:of_noble_bearing
+						}
+						remove_reform = government_reform:of_noble_bearing
+					}
+					# Age 2 Theocracy Useless Reform Remover.
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_theocracy
+						}
+						remove_reform = government_reform:feudal_theocracy
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:agricultural_cultivation
+						}
+						remove_reform = government_reform:agricultural_cultivation
+					}
+					# else_if = {
+					# 	limit = {
+					# 		has_reform = government_reform:local_army_organization
+					# 	}
+					# 	remove_reform = government_reform:local_army_organization
+					# }
+					# else_if = {
+					# 	limit = {
+					# 		has_reform = government_reform:autocracy
+					# 	}
+					# 	remove_reform = government_reform:autocracy
+					# }
+				}
+				# Eðer üsste reform silemediyse ve slot hala doluysa reformu eklemesin diye bunu koydum.
+				if = {
+					limit = {
+						num_open_reform_slots >= 1
+						# government_reform:royal_decree = {
+						# 	is_allowed_for = scope:actor
+						# 	is_implementable_in = scope:actor
+						# }
+					}
+					trigger_event_silently = {
+						id = reai_age_manager_events.5
+						days = 15
+					}
+				}
+			}
+			# ADIM 2: Privy Council (Royal Decree zaten varsa veya ALAMIYORSA ve Privy yoksa)
+			if = {
+				limit = {
+					OR = {
+						has_reform = government_reform:royal_decree
+						NOT = {
+							government_reform:royal_decree = {
+								is_allowed_for = scope:actor
+								is_implementable_in = scope:actor
+							}
+						}
+					}
+					NOT = {
+						has_reform = government_reform:privy_council
+					}
+					government_reform:privy_council = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				# Eðer 2. adým için yer kalmadýysa jenerik reformlarý silip yer açalým
+				if = {
+					limit = {
+						num_open_reform_slots == 0
+					}
+					# Age 1 / 2 useless reform remover for Privy Council
+					if = {
+						limit = {
+							has_reform = government_reform:trade_office_network
+						}
+						remove_reform = government_reform:trade_office_network
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:religious_tolerance
+						}
+						remove_reform = government_reform:religious_tolerance
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:diplomatic_traditions
+						}
+						remove_reform = government_reform:diplomatic_traditions
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:enforce_religious_adherence
+						}
+						remove_reform = government_reform:enforce_religious_adherence
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:plutocratic_ethos
+						}
+						remove_reform = government_reform:plutocratic_ethos
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:garrison_system
+						}
+						remove_reform = government_reform:garrison_system
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_nobility
+						}
+						remove_reform = government_reform:feudal_nobility
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:of_noble_bearing
+						}
+						remove_reform = government_reform:of_noble_bearing
+					}
+					# Age 2 Theocracy Useless Reform Remover.
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_theocracy
+						}
+						remove_reform = government_reform:feudal_theocracy
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:agricultural_cultivation
+						}
+						remove_reform = government_reform:agricultural_cultivation
+					}
+					# else_if = {
+					# 	limit = {
+					# 		has_reform = government_reform:local_army_organization
+					# 	}
+					# 	remove_reform = government_reform:local_army_organization
+					# }
+					# else_if = {
+					# 	limit = {
+					# 		has_reform = government_reform:autocracy
+					# 	}
+					# 	remove_reform = government_reform:autocracy
+					# }
+				}
+				# Yer açýldýysa (veya zaten varsa) Privy Council ekle
+				if = {
+					limit = {
+						num_open_reform_slots >= 1
+						# government_reform:privy_council = {
+						# 	is_allowed_for = scope:actor
+						# 	is_implementable_in = scope:actor
+						# }
+					}
+					trigger_event_silently = {
+						id = reai_age_manager_events.6
+						days = 15
+					}
+				}
+			}
+			# ADIM 3: Local Army Organization (Tertiery Priority - Sadece ilk 2 si varsa/yoksa ve boþ slot kalmýþsa aldýr)
+			if = {
+				limit = {
+					OR = {
+						has_reform = government_reform:royal_decree
+						NOT = {
+							government_reform:royal_decree = {
+								is_allowed_for = scope:actor
+								is_implementable_in = scope:actor
+							}
+						}
+					}
+					OR = {
+						has_reform = government_reform:privy_council
+						NOT = {
+							government_reform:privy_council = {
+								is_allowed_for = scope:actor
+								is_implementable_in = scope:actor
+							}
+						}
+					}
+					NOT = {
+						has_reform = government_reform:local_army_organization
+					}
+					government_reform:local_army_organization = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+					num_open_reform_slots >= 1
+				}
+				add_reform = government_reform:local_army_organization
+			}
+		}
+	}
+}
+
+################ Rational Economy AI - Age 3 and 4 Reform Management ###############
+# Bu aksiyon AI'ýn Age 3 ve Age 4 reformlarýný hiyerarþinize göre seçmesini saðlar.
+# Age 3 Odaklarý: Crown Estate Power (Universal Serfdom) ve Tax Efficiency (Court of Wards).
+# Age 4 Odaklarý: Üretim ve Vergi (Statute of Monopolies, Administration of Clerical Lands).
+reai_age3_reform_fixer = {
+	type = owncountry
+	potential = {
+		scope:actor = {
+			is_ai = yes
+			OR = {
+				current_age = age_3_discovery
+				current_age = age_4_reformation
+			}
+			# Republic veya baska bir hukumet tipi demeden, direkt hedef reformu
+			# "is_allowed_for" ve "is_implementable_in" uzerinden checkliyoruz:
+			OR = {
+				AND = {
+					NOT = {
+						has_reform = government_reform:universal_serfdom
+					}
+					government_reform:universal_serfdom = {
+						is_allowed_for = scope:actor
+					}
+					government_reform:universal_serfdom = {
+						is_implementable_in = scope:actor
+					}
+					# AI'ın serfdom tarafında (sol eksen) %50'den fazla ilerlemiş olması şartı
+					societal_value:serfdom_vs_free_subjects < -50
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:the_court_of_wards_and_liveries
+					}
+					government_reform:the_court_of_wards_and_liveries = {
+						is_allowed_for = scope:actor
+					}
+					government_reform:the_court_of_wards_and_liveries = {
+						is_implementable_in = scope:actor
+					}
+				}
+			}
+		}
+	}
+	ai_tick = monthly
+	ai_tick_frequency = 48
+	ai_will_do = {
+		value = 100
+	}
+	effect = {
+		scope:actor = {
+			# ADIM 1: Universal Serfdom (Common - Crown Estate Power %33)
+			if = {
+				limit = {
+					NOT = {
+						has_reform = government_reform:universal_serfdom
+					}
+					government_reform:universal_serfdom = {
+						is_allowed_for = scope:actor
+					}
+					government_reform:universal_serfdom = {
+						is_implementable_in = scope:actor
+					}
+					# AI'ın serfdom tarafında (sol eksen) %50'den fazla ilerlemiş olması şartı
+					societal_value:serfdom_vs_free_subjects < -50
+				}
+				# Slot açmak için jenerik / önemsiz reformlarý siliyoruz (Age 3)
+				if = {
+					limit = {
+						num_open_reform_slots == 0
+					}
+					# Useless Age 3 reforms to remove
+					if = {
+						limit = {
+							has_reform = government_reform:the_espionage_act
+						}
+						remove_reform = government_reform:the_espionage_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:mercenary_registration_act
+						}
+						remove_reform = government_reform:mercenary_registration_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:multilingual_diplomats
+						}
+						remove_reform = government_reform:multilingual_diplomats
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:colonial_expansion
+						}
+						remove_reform = government_reform:colonial_expansion
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:vassal_obligation_act
+						}
+						remove_reform = government_reform:vassal_obligation_act
+					}
+					# YEDEK: Age 1 ve Age 2 Useless Reforms
+					else_if = {
+						limit = {
+							has_reform = government_reform:trade_office_network
+						}
+						remove_reform = government_reform:trade_office_network
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:religious_tolerance
+						}
+						remove_reform = government_reform:religious_tolerance
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:diplomatic_traditions
+						}
+						remove_reform = government_reform:diplomatic_traditions
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:enforce_religious_adherence
+						}
+						remove_reform = government_reform:enforce_religious_adherence
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:plutocratic_ethos
+						}
+						remove_reform = government_reform:plutocratic_ethos
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:garrison_system
+						}
+						remove_reform = government_reform:garrison_system
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_nobility
+						}
+						remove_reform = government_reform:feudal_nobility
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:of_noble_bearing
+						}
+						remove_reform = government_reform:of_noble_bearing
+					}
+					# Age 2 Theocracy Useless Reform Remover.
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_theocracy
+						}
+						remove_reform = government_reform:feudal_theocracy
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:agricultural_cultivation
+						}
+						remove_reform = government_reform:agricultural_cultivation
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:local_army_organization
+						}
+						remove_reform = government_reform:local_army_organization
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:autocracy
+						}
+						remove_reform = government_reform:autocracy
+					}
+				}
+				# Ekle
+				if = {
+					limit = {
+						num_open_reform_slots >= 1
+						# AI'ın serfdom tarafında (sol eksen) %50'den fazla ilerlemiş olması şartı
+						societal_value:serfdom_vs_free_subjects < -50
+						# government_reform:universal_serfdom = {
+						# 	is_allowed_for = scope:actor
+						# 	is_implementable_in = scope:actor
+						# }
+					}
+					trigger_event_silently = {
+						id = reai_age_manager_events.3
+						days = 15
+					}
+				}
+			}
+			# ADIM 2: The Court of Wards and Liveries (Monarchy - Tax Income Eff)
+			if = {
+				limit = {
+					OR = {
+						has_reform = government_reform:universal_serfdom
+						NOT = {
+							government_reform:universal_serfdom = {
+								is_allowed_for = scope:actor
+								is_implementable_in = scope:actor
+							}
+							# AI'ın serfdom tarafında (sol eksen) %50'den fazla ilerlemiş olması şartı
+							societal_value:serfdom_vs_free_subjects < -50
+						}
+					}
+					NOT = {
+						has_reform = government_reform:the_court_of_wards_and_liveries
+					}
+					government_reform:the_court_of_wards_and_liveries = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				if = {
+					limit = {
+						num_open_reform_slots == 0
+					}
+					# Remove useless again
+					if = {
+						limit = {
+							has_reform = government_reform:the_espionage_act
+						}
+						remove_reform = government_reform:the_espionage_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:mercenary_registration_act
+						}
+						remove_reform = government_reform:mercenary_registration_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:multilingual_diplomats
+						}
+						remove_reform = government_reform:multilingual_diplomats
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:colonial_expansion
+						}
+						remove_reform = government_reform:colonial_expansion
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:vassal_obligation_act
+						}
+						remove_reform = government_reform:vassal_obligation_act
+					}
+					# YEDEK: Age 1 ve Age 2 Useless Reforms
+					else_if = {
+						limit = {
+							has_reform = government_reform:trade_office_network
+						}
+						remove_reform = government_reform:trade_office_network
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:religious_tolerance
+						}
+						remove_reform = government_reform:religious_tolerance
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:diplomatic_traditions
+						}
+						remove_reform = government_reform:diplomatic_traditions
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:enforce_religious_adherence
+						}
+						remove_reform = government_reform:enforce_religious_adherence
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:plutocratic_ethos
+						}
+						remove_reform = government_reform:plutocratic_ethos
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:garrison_system
+						}
+						remove_reform = government_reform:garrison_system
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_nobility
+						}
+						remove_reform = government_reform:feudal_nobility
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:of_noble_bearing
+						}
+						remove_reform = government_reform:of_noble_bearing
+					}
+					# Age 2 Theocracy Useless Reform Remover.
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_theocracy
+						}
+						remove_reform = government_reform:feudal_theocracy
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:agricultural_cultivation
+						}
+						remove_reform = government_reform:agricultural_cultivation
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:local_army_organization
+						}
+						remove_reform = government_reform:local_army_organization
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:autocracy
+						}
+						remove_reform = government_reform:autocracy
+					}
+				}
+				if = {
+					limit = {
+						num_open_reform_slots >= 1
+						# government_reform:the_court_of_wards_and_liveries = {
+						# 	is_allowed_for = scope:actor
+						# 	is_implementable_in = scope:actor
+						# }
+					}
+					trigger_event_silently = {
+						id = reai_age_manager_events.4
+						days = 15
+					}
+				}
+			}
+			# ADIM 3: Royal Commission Act (Monarchy - Cabinet Eff & Centralization) - Tertiery
+			if = {
+				limit = {
+					OR = {
+						has_reform = government_reform:universal_serfdom
+						government_reform:universal_serfdom = {
+							is_allowed_for = scope:actor
+							is_implementable_in = scope:actor
+						}
+					}
+					OR = {
+						has_reform = government_reform:the_court_of_wards_and_liveries
+						NOT = {
+							government_reform:the_court_of_wards_and_liveries = {
+								is_allowed_for = scope:actor
+								is_implementable_in = scope:actor
+							}
+						}
+					}
+					NOT = {
+						has_reform = government_reform:royal_commission_act
+					}
+					government_reform:royal_commission_act = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+					num_open_reform_slots >= 1
+				}
+				add_reform = government_reform:royal_commission_act
+			}
+		}
+	}
+}
+
+############## Age 4 Reform Fixer (Statute of Monopolies ve Administration of Clerical Lands eklemeye çalýþýr, eðer slot yoksa gereksiz reformlarý siler) ###############
+reai_age4_reform_fixer = {
+	type = owncountry
+	potential = {
+		scope:actor = {
+			is_ai = yes
+			current_age = age_4_reformation
+			OR = {
+				AND = {
+					NOT = {
+						has_reform = government_reform:statute_of_monopolies
+					}
+					government_reform:statute_of_monopolies = {
+						is_allowed_for = scope:actor
+					}
+					government_reform:statute_of_monopolies = {
+						is_implementable_in = scope:actor
+					}
+					# # AI'ın Merkantilizm tarafında (sol eksen) %50'den fazla ilerlemiş olması şartı
+					societal_value_progress:mercantilism_vs_free_trade < -50
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:privy_council
+					}
+					government_reform:privy_council = {
+						is_allowed_for = scope:actor
+					}
+					government_reform:privy_council = {
+						is_implementable_in = scope:actor
+					}
+				}
+				AND = {
+					NOT = {
+						has_reform = government_reform:the_court_of_wards_and_liveries
+					}
+					government_reform:the_court_of_wards_and_liveries = {
+						is_allowed_for = scope:actor
+					}
+					government_reform:the_court_of_wards_and_liveries = {
+						is_implementable_in = scope:actor
+					}
+				}
+			}
+		}
+	}
+	ai_tick = monthly
+	ai_tick_frequency = 48
+	ai_will_do = {
+		value = 100
+	}
+	effect = {
+		scope:actor = {
+			# ADIM 1: Statute of Monopolies (Common - Production Eff)
+			if = {
+				limit = {
+					NOT = {
+						has_reform = government_reform:statute_of_monopolies
+					}
+					government_reform:statute_of_monopolies = {
+						is_allowed_for = scope:actor
+					}
+					government_reform:statute_of_monopolies = {
+						is_implementable_in = scope:actor
+					}
+					# # AI'ın Merkantilizm tarafında (sol eksen) %50'den fazla ilerlemiş olması şartı
+					societal_value:mercantilism_vs_free_trade < -50
+				}
+				if = {
+					limit = {
+						num_open_reform_slots == 0
+					}
+					# Age 4 Useless Reforms
+					if = {
+						limit = {
+							has_reform = government_reform:policy_of_calculated_delay
+						}
+						remove_reform = government_reform:policy_of_calculated_delay
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:the_loyalty_act
+						}
+						remove_reform = government_reform:the_loyalty_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:diplomatic_consolidation_act
+						}
+						remove_reform = government_reform:diplomatic_consolidation_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:cultural_recognition_act
+						}
+						remove_reform = government_reform:cultural_recognition_act
+					}
+					# YEDEK: Age 1 ve Age 2 Useless Reforms
+					else_if = {
+						limit = {
+							has_reform = government_reform:trade_office_network
+						}
+						remove_reform = government_reform:trade_office_network
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:colonial_expansion
+						}
+						remove_reform = government_reform:colonial_expansion
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:religious_tolerance
+						}
+						remove_reform = government_reform:religious_tolerance
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:diplomatic_traditions
+						}
+						remove_reform = government_reform:diplomatic_traditions
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:enforce_religious_adherence
+						}
+						remove_reform = government_reform:enforce_religious_adherence
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:plutocratic_ethos
+						}
+						remove_reform = government_reform:plutocratic_ethos
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:garrison_system
+						}
+						remove_reform = government_reform:garrison_system
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:vassal_obligation_act
+						}
+						remove_reform = government_reform:vassal_obligation_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_nobility
+						}
+						remove_reform = government_reform:feudal_nobility
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:of_noble_bearing
+						}
+						remove_reform = government_reform:of_noble_bearing
+					}
+					# Age 2 Theocracy Useless Reform Remover.
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_theocracy
+						}
+						remove_reform = government_reform:feudal_theocracy
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:religious_laws_enforced
+						}
+						remove_reform = government_reform:religious_laws_enforced
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:mercenary_registration_act
+						}
+						remove_reform = government_reform:mercenary_registration_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:multilingual_diplomats
+						}
+						remove_reform = government_reform:multilingual_diplomats
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:agricultural_cultivation
+						}
+						remove_reform = government_reform:agricultural_cultivation
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:local_army_organization
+						}
+						remove_reform = government_reform:local_army_organization
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:autocracy
+						}
+						remove_reform = government_reform:autocracy
+					}
+				}
+				if = {
+					limit = {
+						num_open_reform_slots >= 1
+						# government_reform:statute_of_monopolies = {
+						# 	is_allowed_for = scope:actor
+						# }
+						# government_reform:statute_of_monopolies = {
+						# 	is_implementable_in = scope:actor
+						# }
+						# NOT = {
+						# 	has_reform = government_reform:statute_of_monopolies
+						# }
+						# # AI'ın Merkantilizm tarafında (sol eksen) %50'den fazla ilerlemiş olması şartı
+						societal_value:mercantilism_vs_free_trade < -50
+					}
+					trigger_event_silently = {
+						id = reai_age_manager_events.1
+						days = 15
+					}
+				}
+			}
+			# ADIM 2: privy_council
+			if = {
+				limit = {
+					OR = {
+						has_reform = government_reform:statute_of_monopolies
+						NOT = {
+							government_reform:statute_of_monopolies = {
+								is_allowed_for = scope:actor
+								is_implementable_in = scope:actor
+							}
+							# # AI'ın Merkantilizm tarafında (sol eksen) %50'den fazla ilerlemiş olması şartı
+							societal_value:mercantilism_vs_free_trade < -50
+						}
+					}
+					NOT = {
+						has_reform = government_reform:privy_council
+					}
+					government_reform:privy_council = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				if = {
+					limit = {
+						num_open_reform_slots == 0
+					}
+					if = {
+						limit = {
+							has_reform = government_reform:policy_of_calculated_delay
+						}
+						remove_reform = government_reform:policy_of_calculated_delay
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:the_loyalty_act
+						}
+						remove_reform = government_reform:the_loyalty_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:diplomatic_consolidation_act
+						}
+						remove_reform = government_reform:diplomatic_consolidation_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:cultural_recognition_act
+						}
+						remove_reform = government_reform:cultural_recognition_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:colonial_expansion
+						}
+						remove_reform = government_reform:colonial_expansion
+					}
+					# YEDEK: Age 1 ve Age 2 Useless Reforms
+					else_if = {
+						limit = {
+							has_reform = government_reform:trade_office_network
+						}
+						remove_reform = government_reform:trade_office_network
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:religious_tolerance
+						}
+						remove_reform = government_reform:religious_tolerance
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:diplomatic_traditions
+						}
+						remove_reform = government_reform:diplomatic_traditions
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:enforce_religious_adherence
+						}
+						remove_reform = government_reform:enforce_religious_adherence
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:plutocratic_ethos
+						}
+						remove_reform = government_reform:plutocratic_ethos
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:garrison_system
+						}
+						remove_reform = government_reform:garrison_system
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_nobility
+						}
+						remove_reform = government_reform:feudal_nobility
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:of_noble_bearing
+						}
+						remove_reform = government_reform:of_noble_bearing
+					}
+					# Age 2 Theocracy Useless Reform Remover.
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_theocracy
+						}
+						remove_reform = government_reform:feudal_theocracy
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:religious_laws_enforced
+						}
+						remove_reform = government_reform:religious_laws_enforced
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:mercenary_registration_act
+						}
+						remove_reform = government_reform:mercenary_registration_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:multilingual_diplomats
+						}
+						remove_reform = government_reform:multilingual_diplomats
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:agricultural_cultivation
+						}
+						remove_reform = government_reform:agricultural_cultivation
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:local_army_organization
+						}
+						remove_reform = government_reform:local_army_organization
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:autocracy
+						}
+						remove_reform = government_reform:autocracy
+					}
+				}
+				if = {
+					limit = {
+						num_open_reform_slots >= 1
+						# government_reform:administration_of_clerical_lands = {
+						# 	is_allowed_for = scope:actor
+						# }
+						# government_reform:administration_of_clerical_lands = {
+						# 	is_implementable_in = scope:actor
+						# }
+						# NOT = {
+						# 	has_reform = government_reform:administration_of_clerical_lands
+						# }
+					}
+					trigger_event_silently = {
+						id = reai_age_manager_events.2
+						days = 15
+					}
+				}
+			}
+			# ADIM 2: the_court_of_wards_and_liveries
+			if = {
+				limit = {
+					OR = {
+						has_reform = government_reform:privy_council
+						NOT = {
+							government_reform:privy_council = {
+								is_allowed_for = scope:actor
+								is_implementable_in = scope:actor
+							}
+						}
+					}
+					NOT = {
+						has_reform = government_reform:the_court_of_wards_and_liveries
+					}
+					government_reform:the_court_of_wards_and_liveries = {
+						is_allowed_for = scope:actor
+						is_implementable_in = scope:actor
+					}
+				}
+				if = {
+					limit = {
+						num_open_reform_slots == 0
+					}
+					if = {
+						limit = {
+							has_reform = government_reform:policy_of_calculated_delay
+						}
+						remove_reform = government_reform:policy_of_calculated_delay
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:the_loyalty_act
+						}
+						remove_reform = government_reform:the_loyalty_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:diplomatic_consolidation_act
+						}
+						remove_reform = government_reform:diplomatic_consolidation_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:cultural_recognition_act
+						}
+						remove_reform = government_reform:cultural_recognition_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:colonial_expansion
+						}
+						remove_reform = government_reform:colonial_expansion
+					}
+					# YEDEK: Age 1 ve Age 2 Useless Reforms
+					else_if = {
+						limit = {
+							has_reform = government_reform:trade_office_network
+						}
+						remove_reform = government_reform:trade_office_network
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:religious_tolerance
+						}
+						remove_reform = government_reform:religious_tolerance
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:diplomatic_traditions
+						}
+						remove_reform = government_reform:diplomatic_traditions
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:enforce_religious_adherence
+						}
+						remove_reform = government_reform:enforce_religious_adherence
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:plutocratic_ethos
+						}
+						remove_reform = government_reform:plutocratic_ethos
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:garrison_system
+						}
+						remove_reform = government_reform:garrison_system
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_nobility
+						}
+						remove_reform = government_reform:feudal_nobility
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:of_noble_bearing
+						}
+						remove_reform = government_reform:of_noble_bearing
+					}
+					# Age 2 Theocracy Useless Reform Remover.
+					else_if = {
+						limit = {
+							has_reform = government_reform:feudal_theocracy
+						}
+						remove_reform = government_reform:feudal_theocracy
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:religious_laws_enforced
+						}
+						remove_reform = government_reform:religious_laws_enforced
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:mercenary_registration_act
+						}
+						remove_reform = government_reform:mercenary_registration_act
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:multilingual_diplomats
+						}
+						remove_reform = government_reform:multilingual_diplomats
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:agricultural_cultivation
+						}
+						remove_reform = government_reform:agricultural_cultivation
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:local_army_organization
+						}
+						remove_reform = government_reform:local_army_organization
+					}
+					else_if = {
+						limit = {
+							has_reform = government_reform:autocracy
+						}
+						remove_reform = government_reform:autocracy
+					}
+				}
+				if = {
+					limit = {
+						num_open_reform_slots >= 1
+						# government_reform:administration_of_clerical_lands = {
+						# 	is_allowed_for = scope:actor
+						# }
+						# government_reform:administration_of_clerical_lands = {
+						# 	is_implementable_in = scope:actor
+						# }
+						# NOT = {
+						# 	has_reform = government_reform:administration_of_clerical_lands
+						# }
+					}
+					trigger_event_silently = {
+						id = reai_age_manager_events.7
+						days = 15
+					}
+				}
+			}
+		}
+	}
+}
