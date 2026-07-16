@@ -14,14 +14,15 @@
 	# AI_WAIT_FOR_JOINING_UNIT_STRENGTH_THRESHOLD = 0.33	# AI will wait for joining units if they are at least this strong of the target
 	# AI_REINFORCE_BATTLE_STRENGTH_TRESHOLD = 0.65	# AI will not reinforce battles if their side already have this strength percentage compared to all units in the battle
 	# AI_REINFORCE_BATTLE_DISTANCE_LIMIT = 3	# AI will not look for battles to reinforce that are more than that many locations away
-	# AI_REINFORCE_ONGOING_BATTLE_DISTANCE = 2	# How many locations away AI will try and look to move their arimes to reinforce ongoing combat
+	AI_REINFORCE_ONGOING_BATTLE_DISTANCE = 3	# How many locations away AI will try and look to move their arimes to reinforce ongoing combat
+	AI_ENEMY_LAND_SUPREMACY_THRESHOLD = 4	# vanilla 3    - AI on the defensive only turtles when meaningfully outnumbered, so a roughly even defender still manoeuvres instead of hanging back
 	AI_UPGRADE_BUILDING_UTILITY = 0.04
 	AI_BUFFER_TAX_BASE_FACTOR = 1
 	MAX_LOANS_FOR_MERCS = 1
 	AI_UNINTEGRATED_LAND_EXPANSION_PENALTY = 1
 	AI_LAND_ARMY_MERGE_THRESHOLD = 0.95
 	FOG_OF_WAR_FORGET_CHANCE = 0.5
-	AI_ALLOWED_FORT_BUDGET = 0.065
+	AI_ALLOWED_FORT_BUDGET = 0.06
 	REGIMENT_RECRUITMENT_COST_FACTOR = 0.2	# multiplier for how much we care about the cost of regiments vs budget
 	AI_MAINTENANCE_BUDGET_RATIO = 0.65	# How much of monthly income is allocated for maintenance budget of armies and navies
 	AI_MAINTENANCE_BUDGET_RATIO_AGE_INCREASE = 0.05	# How much the maintenance budget ratio increases per age, to reflect the increasing importance of armies and navies for older ages
@@ -46,13 +47,15 @@
 	INITIATIVE_COMBAT_STRENGTH_FACTOR = 0.025	# -> 10 initiative ~25% better army
 	DEFAULT_REGULAR_ARMY_PREFERENCE = 3.5	#Default number at 0% War Balance
 	DEFAULT_LEVY_ARMY_PREFERENCE = 0.95
-	DEFAULT_MERCENARY_ARMY_PREFERENCE = 0.5
-	DEFAULT_MERCENARY_NAVY_PREFERENCE = 0.5
 	REGULAR_ARMY_PREFERENCE_FACTOR = 0	#How fast the preference goes down with War Balance increasing. The higher the number the less of those units will be used if we are stronger than the enemy.
 	LEVY_ARMY_PREFERENCE_FACTOR = 0.1	#With negative numbers the reliance on those units will grow instead.
+	#Mercs
+	DEFAULT_MERCENARY_ARMY_PREFERENCE = 0.5
+	DEFAULT_MERCENARY_NAVY_PREFERENCE = 0.5
 	MERCENARY_ARMY_PREFERENCE_FACTOR = 1
 	MERCENARY_NAVY_PREFERENCE_FACTOR = 1
 	AI_MERCENARY_COST_UTILITY = -0.45
+	USE_MERCENARIES_IN_WAR_WEIGHT_MULT = 0.65	# vanilla 1
 	#ESTATES
 	AI_ESTATE_SATISFACTION_TARGET_FOR_GRANTING_PRIVILEGES = 0.6	# when below this target satisfaction (excluding temp modifiers) we want to grant a privilege
 	AI_ESTATE_SATISFACTION_TARGET_FOR_REVOKING_PRIVILEGES = 0.75	# When above this target satisfaction (excluding temp modifiers) we want to revoke a privilege
@@ -70,7 +73,7 @@
 	AI_ANNEX_SUBJECT_DISTANCE_THRESHOLD = 30	# How far it can be between borders until AI does not want to annex a subject
 	AI_ANNEX_SUBJECT_BORDERING_CONTROL_NEEDED = 0.25	# AI will only subjugate another country if they have at least this much bordering control
 	#REALLY IMPORTANT
-	AI_CONQUER_TREATY_DESIRE_ADJECENT = 75	# score bonus for picking neighboring locations in peace deal, other locations get 1/bonus penalty
+	AI_CONQUER_TREATY_DESIRE_ADJECENT = 100	# score bonus for picking neighboring locations in peace deal, other locations get 1/bonus penalty
 	AI_CONQUER_TREATY_DESIRE_POTENTIAL_BORDERGORE = 0.25	# Score penalty for when AI is taking a location that will maybe cause bordergore
 	AI_CONQUER_TREATY_DESIRE_SMALL_AREA_FACTOR = 1.2
 	AI_CONQUER_TREATY_DESIRE_SAME_PROVINCE = 100
@@ -83,8 +86,10 @@
 	# PEACE_RELEASE_COUNTRY_STRENGTH_REQUIREMENT = 0.005	#How strong a nation needs to be relative to us to consider them a threat we need to cut in size
 	# PEACE_RELEASE_COUNTRY_RIVAL_FACTOR = 0.025	#How many times more does Ai value releasing countries from their rival than just a big country
 	MINIMUM_MONTHS_BETWEEN_EXPANSION = 12
+	AI_VERY_SMALL_TARGET_MULTIPLIER = 0.2	# vanilla 0.1  - lets large AIs absorb neighbouring minnows into contiguous powers instead of ignoring them, reducing the frozen-bordergore look
 	SUBJUGATION_EXPANSION_FACTOR = 0.75
 	DEFAULT_AGGRESSIVENESS = 1.75	#Vanilla -1.05. Slightly elevated for proactive AI. #Higher = more aggressive.
+	AI_RECOVER_MORALE_THRESHOLD = 55	# vanilla 66   - AI rests its armies at a lower morale band, so it presses a winning fight instead of disengaging while still ahead
 	POWER_BALANCE_AGGRESSIVENESS_FACTOR = 10	#Vanilla 20. 
 	#IMPORTANT
 	EXPECTED_WAR_SCORE_BASE = 50	#How much warscore Ai expects to get in a war.
@@ -118,6 +123,7 @@
 	AI_FOW_FORGET_CHASE_ARMY_CHANCE = 0.125	# chance that AI will forget a chase army objective about an army that goes into fow
 	# These two defines adjust AI desire to maintain a profit margin for their country
 	AI_PROFIT_MARGIN_TARGET = 0.1	# the desired profit margin
+	AI_DEVELOPMENT_UTILITY = 0.18	# vanilla 0.1
 	# Saving mode defines, used mainly when AI enters saving modes: low and high. Goal is to try to stay afloat during bankruptcies and repay loans
 	AI_SAVING_MODE_MONTHS_TO_REPAY_DEBT = 180	# AI will try to have a balance which would allow to repay their debts in that many months
 	AI_ESTATE_SATISFACTION_LINEAR_UTIL = 0
@@ -143,11 +149,7 @@ NCharacter = {
 
 NDiplomacy = {
 	PEACE_LOAN_SIZE_MULTIPLIER_FOR_MAX_WARSCORE_GOLD = 4	#how many times the country's loan size can be taken for the max war score amount
-	PEACE_MAX_NOBLES_SACRIFICED_PERCENT = 0.33
 	PEACE_MAX_WARSCORE_FOR_GOLD = 15	#most war score that can be used to take gold
-	PEACE_MAX_WARSCORE_FOR_SACRIFICE = 20	#most war score that can be used to sacrifice nobles
-	PEACE_NOBLES_SACRIFICED_PER_DOOM_POINT = 0.01	#pop size is 1/1000 per actual person
-	PEACE_SACRIFICE_AI_DESIRE = 6.5
 	WAR_ENTHUSIASM_ALLY_BASE_RELUCTANCE_MULT = 1.25
 	ANTAGONISM_FOR_COALITION = 55
 	WAR_ENTHUSIASM_BASE = 0.6
@@ -160,14 +162,22 @@ NDiplomacy = {
 }
 
 NCombat = {
+	DAYS_PER_SIEGE_PHASE = 24	# vanilla 30
 	INITIATIVE_CHANCE_EACH = 0.05	# Chance to engage per point of initiative
+	PRESTIGE_FROM_LAND = 0.75	# vanilla 0.5 - land battles a reliable prestige source
+	PRESTIGE_FROM_NAVAL = 0.75	# vanilla 0.5 - naval battles a reliable prestige source
+	PRESTIGE_VS_RIVAL = 2	# vanilla 1.5 - beating rivals matters more
+	DAYS_PER_SIEGE_PHASE_WITHOUT_FORT = 10	# vanilla 15
 }
 
-NMercenary = {
-	MERCENARY_ARMY_UNIT_MAX_SIZE = 75
-	MERCENARY_MANPOWER_REPLENISH_TIME_DAYS = 10800
-	MERCENARY_SUBUNITS_AVAILABLE_PER_ADM_POINT = 0.1
-	MERCENARY_RECRUITMENT_DISTANCE_FACTOR = 0.04
-	MERCENARY_LEADER_DISTANCE_MULTIPLIER = 0.0008
-	MERCENARY_NAVY_UNIT_MAX_SIZE = 18
-}
+# NMercenary = {
+# 	MERCENARY_ARMY_UNIT_MAX_SIZE = 80             # vanilla 150  - max merc stack matches a real army corps
+# 	MERCENARY_MANPOWER_REPLENISH_TIME_DAYS = 12600 # vanilla 7200 - merc pools refill far slower, so a region drained by a major mercenary war stays tapped for years and a wiped host cannot simply be re-bought
+# 	MERCENARY_SUBUNITS_AVAILABLE_PER_ADM_POINT = 0.10 # vanilla 0.25 - one-province minors can't field huge merc hosts
+# 	MERCENARY_RECRUITMENT_DISTANCE_FACTOR = 0.04   # vanilla 0.025 - regional merc pool / distance cost
+# 	MERCENARY_LEADER_DISTANCE_MULTIPLIER = 0.0008  # vanilla 0.0005 - leader mileage cost over distance
+# 	MERCENARY_NAVY_UNIT_MAX_SIZE = 18              # vanilla 25    - smaller naval merc stacks
+# 	MERCENARY_GATHERING_TIME_BASE = 30            # vanilla 14    - a hired company takes longer to gather, so mercenaries are a deliberate mid-war reinforcement rather than an instant counter-stack
+# 	MERCENARY_LEADER_ABILITY_WEIGHT = 67          # vanilla 50    - raises the price curve for the highest-ability captains, which is exponential in ability so only elite captains cost meaningfully more while modest ones stay affordable
+# 	MERCENARY_LEADER_BASE_PRICE = 70              # vanilla 50    - raises the base price of hiring a captain so fielding a swarm of captains to dodge the stack-size cap costs more, while a single modest captain stays accessible
+# }
