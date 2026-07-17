@@ -1,4 +1,9 @@
-﻿TRY_INJECT:royal_court = {
+﻿# Forts
+TRY_INJECT:castle = {
+	important_for_AI = yes
+}
+
+TRY_INJECT:royal_court = {
 	important_for_AI = yes
 	AI_ignore_available_worker_flag = yes
 }
