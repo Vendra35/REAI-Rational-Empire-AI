@@ -50,12 +50,12 @@
 	REGULAR_ARMY_PREFERENCE_FACTOR = 0	#How fast the preference goes down with War Balance increasing. The higher the number the less of those units will be used if we are stronger than the enemy.
 	LEVY_ARMY_PREFERENCE_FACTOR = 0.1	#With negative numbers the reliance on those units will grow instead.
 	#Mercs
-	DEFAULT_MERCENARY_ARMY_PREFERENCE = 0.5
-	DEFAULT_MERCENARY_NAVY_PREFERENCE = 0.5
-	MERCENARY_ARMY_PREFERENCE_FACTOR = 1
-	MERCENARY_NAVY_PREFERENCE_FACTOR = 1
-	AI_MERCENARY_COST_UTILITY = -0.45
-	USE_MERCENARIES_IN_WAR_WEIGHT_MULT = 0.65	# vanilla 1
+	# DEFAULT_MERCENARY_ARMY_PREFERENCE = 0.5
+	# DEFAULT_MERCENARY_NAVY_PREFERENCE = 0.5
+	# MERCENARY_ARMY_PREFERENCE_FACTOR = 1
+	# MERCENARY_NAVY_PREFERENCE_FACTOR = 1
+	# AI_MERCENARY_COST_UTILITY = -0.45
+	# USE_MERCENARIES_IN_WAR_WEIGHT_MULT = 0.65	# vanilla 1
 	#ESTATES
 	AI_ESTATE_SATISFACTION_TARGET_FOR_GRANTING_PRIVILEGES = 0.6	# when below this target satisfaction (excluding temp modifiers) we want to grant a privilege
 	AI_ESTATE_SATISFACTION_TARGET_FOR_REVOKING_PRIVILEGES = 0.75	# When above this target satisfaction (excluding temp modifiers) we want to revoke a privilege
@@ -76,7 +76,7 @@
 	AI_CONQUER_TREATY_DESIRE_ADJECENT = 100	# score bonus for picking neighboring locations in peace deal, other locations get 1/bonus penalty
 	AI_CONQUER_TREATY_DESIRE_POTENTIAL_BORDERGORE = 0.25	# Score penalty for when AI is taking a location that will maybe cause bordergore
 	AI_CONQUER_TREATY_DESIRE_SMALL_AREA_FACTOR = 1.2
-	AI_CONQUER_TREATY_DESIRE_SAME_PROVINCE = 100
+	AI_CONQUER_TREATY_DESIRE_SAME_PROVINCE = 300
 	#PEACE
 	EARLY_PEACE_TIME_MONTHS = 12	#How many months need to pass for Ai to lose the early war peace acceptance modifier
 	EARLY_PEACE_TIME_BASE = 75	#How much negative acceptance is added by the early war modifier
