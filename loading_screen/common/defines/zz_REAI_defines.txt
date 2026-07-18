@@ -3,10 +3,10 @@
 	AI_UPGRADE_CITY_LOW_MANPOWER_UTILITY = 0.075	# AI desire to build more towns when limited on manpower. 0.035 vanila
 	# AI_LOGISTIC_DISTANCE_UTILITY = 0.005
 	# AI_LAND_MORALE_MODIFIER_UTILITY = 0.25
-	# ----- Pathfinding, Access ve Lojistik Cozumleri -----
-	# AI_PERFORMANCE_PATHFIND_DISTANCE_THRESHOLD = 250	# Uzak rotalarda access zincirini dogru hesaplamasi icin menzili uzattik.
-	# MILITARY_ACCESS_MAX_OBJECTIVES = 5	# Ayni anda 10 farkli ulkeden erzak/askeri gecis isteyebilsin, boylece aradaki kucuk devletlerde takilmasin.
-	# AI_LOW_FOOD_PERCENTAGE_THRESHOLD = 0.5	# Askerleri acikmadan daha erken Food Access almaya calissin, boylece yolda kilitlenmesinler.
+	# ----- Pathfinding, Access and Logistics -----
+	# AI_PERFORMANCE_PATHFIND_DISTANCE_THRESHOLD = 250	# AI will not pathfind for objectives that are further away than this distance, instead it will just pick a random objective
+	# MILITARY_ACCESS_MAX_OBJECTIVES = 5	# AI will not try to get more than this many military access objectives at once
+	# AI_LOW_FOOD_PERCENTAGE_THRESHOLD = 0.5	# AI will consider itself low on food if it has less than this percentage of its monthly food consumption in stockpile
 	# ---------------------------------------------------
 	AI_AWAIT_REINFORCING_ARMY_DISTANCE_MAX = 50	# above this map AI will wait for other collaborating armies before engaging their target
 	AI_AWAIT_REINFORCING_ARMY_DISTANCE_MIN = 28	# below this map distance collaborating armies are considered closed enough to start moving again
@@ -52,14 +52,14 @@
 	DEFAULT_LEVY_ARMY_PREFERENCE = 0.95
 	REGULAR_ARMY_PREFERENCE_FACTOR = 0	#How fast the preference goes down with War Balance increasing. The higher the number the less of those units will be used if we are stronger than the enemy.
 	LEVY_ARMY_PREFERENCE_FACTOR = 0.1	#With negative numbers the reliance on those units will grow instead.
-	#Mercs
+	# ------- Mercs -------
 	# DEFAULT_MERCENARY_ARMY_PREFERENCE = 0.5
 	# DEFAULT_MERCENARY_NAVY_PREFERENCE = 0.5
 	# MERCENARY_ARMY_PREFERENCE_FACTOR = 1
 	# MERCENARY_NAVY_PREFERENCE_FACTOR = 1
 	# AI_MERCENARY_COST_UTILITY = -0.45
 	# USE_MERCENARIES_IN_WAR_WEIGHT_MULT = 0.65	# vanilla 1
-	#ESTATES
+	# ------- ESTATES -------
 	AI_ESTATE_SATISFACTION_TARGET_FOR_GRANTING_PRIVILEGES = 0.6	# when below this target satisfaction (excluding temp modifiers) we want to grant a privilege
 	AI_ESTATE_SATISFACTION_TARGET_FOR_REVOKING_PRIVILEGES = 0.75	# When above this target satisfaction (excluding temp modifiers) we want to revoke a privilege
 	AI_ESTATE_SATISFACTION_STABILITY_ESTIMATE = 0.3	# when evaluating if we should remove or grant a privilege we estimate estate satisfaction based on this stability
@@ -67,7 +67,7 @@
 	AI_ESTATE_SATISFACTION_TARGET_PARLIAMENT_AGENDAS = 0.4	# Parliament agendas will not be considered if they lower estate satisfaction below this point
 	AI_ESTATE_SATISFACTION_TARGET_PRIVILEGES = 0.02	# Estate privileges will not be considered if they give less estate satisfaction than this
 	AI_ESTATE_TARGET_SATISFACTION_NEEDED_THRESHOLD_PRIVILEGES = 0.05
-	#SUBJECT
+	# ------- SUBJECT -------
 	#all these cumulative multiply the total war-worth  if true..
 	PEACE_MAKE_SUBJECT_BASE_FACTOR = 0.99
 	PEACE_MAKE_SUBJECT_OTHER_DOMINANT_CULTURE = 2
@@ -75,12 +75,12 @@
 	PEACE_MAKE_SUBJECT_TOO_MUCH_TO_INTEGRATE = 3
 	AI_ANNEX_SUBJECT_DISTANCE_THRESHOLD = 30	# How far it can be between borders until AI does not want to annex a subject
 	AI_ANNEX_SUBJECT_BORDERING_CONTROL_NEEDED = 0.25	# AI will only subjugate another country if they have at least this much bordering control
-	#REALLY IMPORTANT
+	# ------- REALLY IMPORTANT -------
 	AI_CONQUER_TREATY_DESIRE_ADJECENT = 100	# score bonus for picking neighboring locations in peace deal, other locations get 1/bonus penalty
 	AI_CONQUER_TREATY_DESIRE_POTENTIAL_BORDERGORE = 0.25	# Score penalty for when AI is taking a location that will maybe cause bordergore
 	AI_CONQUER_TREATY_DESIRE_SMALL_AREA_FACTOR = 1.2
 	AI_CONQUER_TREATY_DESIRE_SAME_PROVINCE = 300
-	#PEACE
+	# ------- PEACE -------
 	EARLY_PEACE_TIME_MONTHS = 12	#How many months need to pass for Ai to lose the early war peace acceptance modifier
 	EARLY_PEACE_TIME_BASE = 75	#How much negative acceptance is added by the early war modifier
 	EARLY_PEACE_TIME_FACTOR = 1.5	#How much acceptance is multiplied by the early war modifier
@@ -94,7 +94,7 @@
 	DEFAULT_AGGRESSIVENESS = 1.75	#Vanilla -1.05. Slightly elevated for proactive AI. #Higher = more aggressive.
 	AI_RECOVER_MORALE_THRESHOLD = 55	# vanilla 66   - AI rests its armies at a lower morale band, so it presses a winning fight instead of disengaging while still ahead
 	POWER_BALANCE_AGGRESSIVENESS_FACTOR = 10	#Vanilla 20. 
-	#IMPORTANT
+	# ------- REALLY IMPORTANT -------
 	EXPECTED_WAR_SCORE_BASE = 50	#How much warscore Ai expects to get in a war.
 	PEACE_DEAL_INTEGRATION_LIMIT_MULTIPLIER = 5
 	PEACE_DEAL_ADDITIONAL_INTEGRATION_LIMIT = 0	# If a peace deal would require more than (Cabinet size + PEACE_DEAL_ADDITIONAL_INTEGRATION_LIMIT) * PEACE_DEAL_INTEGRATION_LIMIT_MULTIPLIER to integrate it won't be accepted, set to -1 so the limit is ignored.
@@ -124,10 +124,10 @@
 	SAFE_AMOUNT_OF_ANTAGONISM = 60	#Ai will try not to expand above this, it's NOT their target antagonism when peacing out
 	DEFAULT_CHANCE_OF_EXPANSION = 0.33	#How likely AI is to start a war plan against other nations each month
 	AI_FOW_FORGET_CHASE_ARMY_CHANCE = 0.125	# chance that AI will forget a chase army objective about an army that goes into fow
-	# These two defines adjust AI desire to maintain a profit margin for their country
+	# ------- These two defines adjust AI desire to maintain a profit margin for their country -------
 	AI_PROFIT_MARGIN_TARGET = 0.1	# the desired profit margin
 	AI_DEVELOPMENT_UTILITY = 0.18	# vanilla 0.1
-	# Saving mode defines, used mainly when AI enters saving modes: low and high. Goal is to try to stay afloat during bankruptcies and repay loans
+	# ------- Saving mode defines, used mainly when AI enters saving modes: low and high. Goal is to try to stay afloat during bankruptcies and repay loans -------
 	AI_SAVING_MODE_MONTHS_TO_REPAY_DEBT = 180	# AI will try to have a balance which would allow to repay their debts in that many months
 	AI_ESTATE_SATISFACTION_LINEAR_UTIL = 0
 	AI_ESTATE_SATISFACTION_QUAD_UTIL = 4
