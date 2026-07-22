@@ -238,6 +238,20 @@ reai_better_ai_estate_man.2 = {
 			}
 			grant_estate_privilege = estate_privilege:clergy_in_administration
 		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:clergy_powerful_dioceses = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:clergy_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:clergy_powerful_dioceses
+				}
+			}
+			grant_estate_privilege = estate_privilege:clergy_powerful_dioceses
+		}
 		# Dhimmi Privileges
 		if = {
 			limit = {
@@ -397,6 +411,15 @@ reai_better_ai_estate_man.2 = {
 				has_estate_privilege = estate_privilege:peasants_autonomous_villages
 			}
 			revoke_estate_privilege = estate_privilege:peasants_autonomous_villages
+		}
+		# Clergy etc.
+		if = {
+			limit = {
+				is_ai = yes
+				country_has_estate = estate_type:clergy_estate
+				has_estate_privilege = estate_privilege:clergy_lecture_oaths
+			}
+			revoke_estate_privilege = estate_privilege:clergy_lecture_oaths
 		}
 	}
 }
