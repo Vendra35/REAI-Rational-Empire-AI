@@ -3,6 +3,12 @@ TRY_INJECT:castle = {
 	important_for_AI = yes
 }
 
+# University
+TRY_INJECT:university = {
+	important_for_AI = yes
+	AI_ignore_available_worker_flag = yes
+}
+
 TRY_INJECT:royal_court = {
 	important_for_AI = yes
 	AI_ignore_available_worker_flag = yes

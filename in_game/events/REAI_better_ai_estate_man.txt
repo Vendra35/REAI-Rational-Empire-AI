@@ -110,6 +110,20 @@ reai_better_ai_estate_man.2 = {
 			}
 			grant_estate_privilege = estate_privilege:peasants_allowed_weapons_privilege
 		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:peasants_free_peasantry = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:peasants_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:peasants_free_peasantry
+				}
+			}
+			grant_estate_privilege = estate_privilege:peasants_free_peasantry
+		}
 		# All Burgher Privileges
 		if = {
 			limit = {
@@ -251,6 +265,48 @@ reai_better_ai_estate_man.2 = {
 				}
 			}
 			grant_estate_privilege = estate_privilege:clergy_powerful_dioceses
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:clergy_literacy_rights = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:clergy_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:clergy_literacy_rights
+				}
+			}
+			grant_estate_privilege = estate_privilege:clergy_literacy_rights
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:expansionist_zealotry = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:clergy_estate
+				NOT = {
+					has_estate_privilege = estate_privilege:expansionist_zealotry
+				}
+			}
+			grant_estate_privilege = estate_privilege:expansionist_zealotry
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				estate_privilege:clergy_religious_state = {
+					is_allowed_for = root
+					is_implementable_in = root
+				}
+				country_has_estate = estate_type:clergy_religious_state
+				NOT = {
+					has_estate_privilege = estate_privilege:clergy_religious_state
+				}
+			}
+			grant_estate_privilege = estate_privilege:clergy_religious_state
 		}
 		# Dhimmi Privileges
 		if = {
