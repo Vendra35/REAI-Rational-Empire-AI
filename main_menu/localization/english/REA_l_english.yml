@@ -1,1 +1,7 @@
-﻿
+﻿l_english:
+
+# AI Personality names (used as PdxDataLocalize(GetKey()) in CAiPersonality::GetName)
+ ai_competitive: "Competitive"
+
+# AI Personality descriptions (key + "_desc")
+ ai_competitive_desc: "This nation pursues power through strategic dominance and influence. It is quick to establish rivalries, seeks economic and diplomatic supremacy, and views neighboring powers as competitors to be outmaneuvered rather than immediate military targets."
