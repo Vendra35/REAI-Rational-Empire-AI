@@ -301,7 +301,7 @@ reai_better_ai_estate_man.2 = {
 					is_allowed_for = root
 					is_implementable_in = root
 				}
-				country_has_estate = estate_type:clergy_religious_state
+				country_has_estate = estate_type:clergy_estate
 				NOT = {
 					has_estate_privilege = estate_privilege:clergy_religious_state
 				}
